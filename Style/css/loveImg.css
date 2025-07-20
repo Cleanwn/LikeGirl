@@ -1,0 +1,84 @@
+.img_card {
+    padding: 1.3rem 1.3rem 1.5rem;
+    background: #fafafa;
+    box-sizing: border-box;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(208, 206, 206, 0.4) !important;
+    box-shadow: 0 5px 12px #cfd4da85;
+    transition: all 0.23s linear;
+}
+
+.love_img img {
+    width: 20rem;
+    height: 25rem;
+    border-radius: 1rem;
+    object-fit: cover;
+    box-shadow: 0 0px 30px #857d7d78;
+    margin-bottom: 1rem;
+    /* border: 1px solid rgba(208, 206, 206, 0.4) !important; */
+}
+
+.img_card:hover {
+    cursor: pointer;
+    cursor: url(../cur/hover.cur), pointer;
+    background: #494949;
+}
+
+.love_img img {
+    transition: all 0.23s linear;
+}
+
+.img_card:hover.love_img img {
+    transform: translateY(-5px);
+}
+
+.img_card:active {
+    background: #494949;
+}
+
+.img_card:hover img {
+    box-shadow: 0 2px 10px #3b3b3bad;
+}
+
+.img_card:hover.img_card span {
+    color: #e2e2e2;
+}
+
+.img_card span {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 400;
+    font-size: 1.05rem;
+    color: #454040;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+    line-height: 1.5em;
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; */
+}
+
+.img_card i {
+    display: block;
+    text-align: right;
+    font-style: normal;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 400;
+    color: #999;
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px dashed #d7d7d7;
+}
+
+.img_card words {
+    padding: 0 1rem;
+}
+
+.spl-button,
+.spl-description,
+.spl-title {
+    margin-bottom: 20px;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 400;
+}

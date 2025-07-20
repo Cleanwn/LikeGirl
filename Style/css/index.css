@@ -1,0 +1,5 @@
+@import url(content.css?LikeGirl=v5.2.0);
+@import url(small-x.css?LikeGirl=v5.2.0) only screen and (max-width: 768px);
+@import url(small.css?LikeGirl=v5.2.0) only screen and (min-width: 768px);
+@import url(medium.css?LikeGirl=v5.2.0) only screen and (min-width: 960px);
+@import url(big.css?LikeGirl=v5.2.0) only screen and (min-width: 1200px);

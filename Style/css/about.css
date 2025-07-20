@@ -1,0 +1,52 @@
+.botui-message-content-image {
+  border-radius: 0.6rem;
+}
+
+.text-ce {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 700;
+  color: #646161;
+}
+.text-ce i {
+  font-style: normal;
+  color: #a1a1a1;
+  margin: 0 0.6rem;
+}
+.central-600 {
+  background: url("https://img.gejiba.com/images/2e34a88491d60fa809883cc7cd149759.jpg") no-repeat center;
+  border-radius: 3rem;
+  background-size: cover;
+  overflow: hidden;
+  box-shadow: 0 8px 12px #ababab87;
+  border: 2px solid rgba(208, 206, 206, 0.4) !important;
+}
+.central-600 .botui-app-container {
+    width: 100%;
+    background: #35353563;
+}
+.central-600 .botui-container {
+  border-radius: 3rem;
+  background: transparent;
+}
+.central-600 .botui-actions-buttons-button {
+  border-radius: 8px;
+  background: #919191;
+  font-family: 'Noto Serif SC', serif !important;
+  font-weight: 400 !important;
+}
+.central-600 .botui-message-content {
+  padding: 10px 16px;
+  color: #999999;
+  background-color: #ffffff;
+}
+.central-600 .botui-message-content.human {
+  color: #fff;
+  background-color: #919292;
+}
+.central-600 .botui-container {
+    padding: 1rem;
+    box-sizing: border-box;
+}

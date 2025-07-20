@@ -1,0 +1,269 @@
+.central.bg {
+    background: #fff;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    box-shadow: 0 8px 12px #ebedf0;
+    border: 1px solid rgba(208, 206, 206, 0.4) !important;
+}
+
+.central.bg h3 {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 2rem 0;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+}
+
+.central.bg h3 b {
+    font-size: 2.5rem;
+    color: #ffbe27;
+    text-shadow: 0 2px 3px rgb(255 183 17 / 36%);
+}
+
+.central.bg .row .card .leavform {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.jiequ {
+    display: block;
+    font-size: 1.2rem;
+    font-style: normal;
+    color: #969292;
+    margin-top: 0.9rem;
+}
+
+.central.bg .row .card .leavform img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 5rem;
+    display: block;
+    box-shadow: 0 2px 20px #c5c5c575;
+    border: 1px solid #fff;
+}
+
+.central.bg .row .card .textinfo .user_info {
+    display: flex;
+    align-items: center;
+}
+
+.central.bg .row .card .leavform .textinfo {
+    width: 100%;
+    padding: 1.5rem 1.5rem .5rem;
+    border-radius: 1rem;
+    position: relative;
+    box-shadow: 0 0 35px 0 rgb(172 178 185 / 22%);
+    transition: all .2s;
+}
+
+
+.central.bg .row .card .leavform .textinfo:hover{
+    background: #f0f0f0;
+    cursor: url(../cur/hover.cur), pointer;
+}
+
+
+.central.bg .row .card .leavform .textinfo .name {
+    font-size: 1.2rem;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 400;
+}
+
+.central.bg .row .card .leavform .textinfo .time {
+    font-size: .9rem;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0rem;
+}
+
+.central.bg .row .card .leavform .textinfo .MsgTopInfo {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.central.bg .row .card .leavform .textinfo .text {
+    margin-top: 1rem;
+    padding: 0.8rem 0;
+    color: #3d3d3d;
+    border-top: 1px dashed #c5c5c5;
+    letter-spacing: 0.1rem;
+    line-height: 1.6rem;
+}
+
+.central.bg .row .card .inputbox {
+    margin-top: 7rem;
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px dashed #c7c7c7ee;
+}
+
+.central.bg .row .card .inputbox input {
+    border: none;
+    padding: 1rem 1.5rem;
+    border: 1px solid transition !important;
+    box-shadow: 0 2px 10px 0 rgb(148 147 147 / 15%);
+    border-radius: 0.5rem;
+    width: 40%;
+    background: #f3f4f6;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 400;
+    background: #e8e8e8;
+    transition: all .3s;
+}
+
+.central.bg .row .card .inputbox input:focus,
+.central.bg .row .card #wenben:focus {
+    background: #fff;
+    border-color: #6b7280;
+}
+
+.central.bg .row .card .inputbox .rig {
+    margin-right: 1rem;
+}
+
+input#QQ {
+    margin-bottom: 0;
+}
+
+.central.bg .row .card #wenben {
+    box-sizing: border-box;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    resize: vertical;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    background-color: #f0f0f0;
+    transition: all 0.25s ease-in-out 0s;
+    border: none !important;
+    box-shadow: 0 2px 10px 0 rgb(148 147 147 / 15%);
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 400;
+}
+
+.central.bg .row .card #wenben:focus {
+    background-position-y: 187px;
+    transition: all 0.25s ease-in-out 0s;
+}
+
+.central.bg .row .card .input-sub {
+    text-align: right;
+    margin: 1rem 0;
+}
+
+.central.bg .row .card .input-sub .tijiao {
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    font-size: 1.3rem;
+    box-shadow: 0 2px 10px 0 rgb(92 92 92 / 44%);
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.central.bg .row .card .input-sub .tijiao:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.leav_icon {
+    width: 2em;
+    height: 2em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+
+.central.bg .row .card .leavform .textinfo span.name {
+    padding: 0.2rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 1.2rem !important;
+    text-transform: capitalize;
+    color: #3f3f3f;
+    font-weight: 700;
+}
+
+.central.bg .row .card .leavform .textinfo span.name.ipclass {
+    color: #fa5c7c;
+    background-color: rgba(250, 92, 124, .18);
+    font-size: 0.8rem !important;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+}
+
+.central.bg .row .card .leavform .textinfo .time {
+    text-align: right;
+    display: inherit;
+}
+
+.central.bg .row .card .leavform .textinfo .text {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 400;
+}
+
+svg.leav_icon.sm22 {
+    padding: 0.5rem;
+    background: #f3f3f3;
+    border-radius: 50%;
+    margin-right: 0.8rem;
+}
+
+.central.bg .row .card .leavform .textinfo .time {
+    text-align: right;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 400;
+    background: #eef3ff;
+    color: #0052ff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid #90b4ff;
+}
+
+.central.bg .row .card .leavform .textinfo .time .yuan {
+    display: block;
+    margin: 0 .5rem;
+    width: 0.35rem;
+    height: 0.35rem;
+    border-radius: 10rem;
+    background-color: #00a4ff;
+    border: 1px solid #fff;
+}
+
+
+.MessageButtonCard{
+    position: fixed;
+    top: 8rem;
+    right: 3rem;
+    z-index: 100;
+    background: #70a9ff;
+    padding: .8rem;
+    border-radius:10rem;
+    border: 2px solid #fff;
+    transition: all .2s;
+    box-shadow: 0 0 35px 0 rgb(140 186 255 / 39%);
+}
+
+.MessageButtonCard:hover{
+    background:#fff;
+    cursor:pointer;
+}
+
+.MessageButtonCard:hover .Message-Icon{
+    color: #70a9ff;
+}
+
+.MessageButtonCard .Message-Icon{
+    color: #fff;
+    width:2rem !important;
+    height:2rem !important;
+}

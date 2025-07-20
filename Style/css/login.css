@@ -1,0 +1,75 @@
+body {
+  background: url("https://img.gejiba.com/images/49b67ae692f8301aab215137be47dfc1.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100vh;
+  position: relative;
+}
+input {
+  outline: none;
+  border: none;
+}
+.central {
+  margin: 0 auto;
+}
+.center {
+  margin: 0 auto;
+}
+.card {
+  margin: 5rem auto;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: #ffffff1f;
+  box-shadow: 0 8px 12px #ebedf0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(208, 206, 206, 0.4) !important;
+}
+.card h1 {
+  font-size: 3rem;
+  text-align: center;
+  display: block;
+  line-height: 6rem;
+  margin-bottom: 4rem;
+  border-radius: 0.2rem;
+  border-bottom: 0.4rem solid #fff;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 700;
+}
+.form_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.form_wrap span {
+  width: 15%;
+  display: block;
+  color: #333;
+  font-size: 1.5rem;
+  text-align: right;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 400;
+}
+.form_wrap input {
+  width: 60%;
+  margin: 2em 0;
+  font-size: 1.2rem;
+  padding: 1rem 3rem;
+  box-shadow: 0 6px 10px #e9e9e9;
+  border-radius: 2rem;
+  border: 2px solid rgba(208, 206, 206, 0.4) !important;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 400;
+}
+.form_wrap #btn {
+  width: 30%;
+  background: #000;
+  color: #fff;
+}
+.form_wrap #btn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}

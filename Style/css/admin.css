@@ -1,0 +1,139 @@
+body {
+  background: url("../img/adminbg.jpg") no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+:root {
+  scroll-behavior: smooth;
+}
+.header-wrap {
+  color: #fff;
+}
+.header-wrap .header .logo h1 {
+  text-transform: capitalize;
+}
+.header-wrap .header .logo h1 .admin {
+  color: #fff;
+}
+.header-wrap .header .word span {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.7rem;
+  background: #000;
+}
+.header-wrap .header .word span a {
+  color: #fff !important;
+}
+.header-wrap .header .word span a:hover {
+  opacity: 0.7;
+}
+.icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  margin-right: 0.3rem;
+}
+.header-btn-wrap {
+  margin-top: 5rem;
+}
+.header-btn-wrap .header-btn .btnClass {
+  display: flex;
+  justify-content: center;
+}
+.header-btn-wrap .header-btn .btnClass span a {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: #fff;
+  color: #333;
+  border-radius: 2rem;
+  margin: 0 0.6rem;
+}
+.header-btn-wrap .header-btn .btnClass span a:hover {
+  background: #000;
+  color: #fff;
+}
+input {
+  outline: none;
+}
+.card-wrap .row .card {
+  background: none;
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  box-shadow: 0 0px 7px #ebedf0b3;
+}
+.card-wrap .row .card h1 {
+  font-size: 2rem;
+  color: #eaeaea;
+  text-align: center;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 700;
+}
+.card-wrap .row .card .from {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+.card-wrap .row .card .from span {
+  width: 200px;
+  color: #ddd;
+  margin: 1rem;
+  font-size: 1.2rem;
+  padding: 0.6rem 1.2rem;
+  background: #000;
+  color: #fff;
+  border-radius: 1rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-wrap .row .card .from input {
+  color: #fff;
+  width: 80%;
+  padding: 0.8rem 2rem;
+  border-radius: 3rem;
+  border: none;
+  border: 0.2rem solid #fff;
+  background: transparent;
+  font-size: 1.1rem;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 400;
+}
+.card-wrap .row .card .from i {
+  font-style: normal;
+  padding: 0.6rem 1rem;
+  background: #31c27c;
+  width: 50%;
+  text-align: center;
+  border-radius: 2rem;
+  color: #fff;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 400;
+}
+.card-wrap .row .card .tijiao {
+  text-align: right;
+}
+.card-wrap .row .card .tijiao #btn {
+  border: none;
+  padding: 0.8rem 3rem;
+  border-radius: 2rem;
+}
+.card-wrap .row .card .tijiao #btn:hover {
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+}
+.editormd{
+    border-radius: 10px;
+    box-shadow: 0 4px 10px 0 rgb(255 255 255 / 45%);
+    height: 450px!important;
+}
+.markdown-body h1 {
+    color: #383838!important;
+    padding-bottom: 0.3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}

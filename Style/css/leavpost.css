@@ -1,0 +1,46 @@
+.row h1 {
+  font-size: 3rem!important;
+}
+.row h1 b {
+  font-size: 4rem!important;
+}
+.card-wrap .row .from-wrap {
+  width: 100%;
+  overflow: auto;
+}
+.card-wrap .row .flex-ha {
+  display: flex!important;
+  flex-direction: row!important;
+  flex-wrap: nowrap!important;
+  width: 1100px;
+}
+.card-wrap .row .flex-ha span {
+  background: #fff!important;
+  color: #878787!important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-wrap .row .flex-ha .ly {
+  border-bottom: 0.2rem solid #ccc;
+  background: transparent!important;
+  color: #fff!important;
+}
+.card-wrap .row .flex-ha .ly.bg {
+  background: #ff3176!important;
+}
+.card-wrap .row .flex-ha a {
+  color: #ffffff!important;
+  display: block;
+  width: 100%;
+}
+.card-wrap .row .flex-ha a:hover {
+  opacity: 0.7;
+}
+.card-wrap .row .flex-ha .del {
+  width: 5rem!important;
+}
+.from-wrap::-webkit-scrollbar {
+  width: 8px;
+  height: 12px;
+}
