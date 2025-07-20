@@ -14,34 +14,41 @@
 
 
 <?php
-include ($_SERVER['DOCUMENT_ROOT'] . '/ipjc.php');
-error_reporting(0);
-include_once 'connect.php';
-include_once 'Function.php';
-$sql = "select * from login where user = '" . $_SESSION['loginadmin'] . "' ";
-$loginresult = mysqli_query($connect, $sql);
-if (mysqli_num_rows($loginresult)) {
-    $login = mysqli_fetch_array($loginresult);
-} else {
-    header("Location:login.php");
-    die("<script>alert('参数错误')</script>");
-}
-$sql = "select * from login";
-$result = mysqli_query($connect, $sql);
-if (mysqli_num_rows($result)) {
-    $login = mysqli_fetch_array($result);
-}
-
-$sql = "select * from text";
-$result = mysqli_query($connect, $sql);
-if (mysqli_num_rows($result)) {
-    $text = mysqli_fetch_array($result);
-}
-$sql = "select * from diySet";
-$result = mysqli_query($connect, $sql);
-if (mysqli_num_rows($result)) {
-    $diy = mysqli_fetch_array($result);
-}
+    include ($_SERVER['DOCUMENT_ROOT'] . '/ipjc.php');
+    error_reporting(0);
+    include_once 'connect.php';
+    include_once 'Function.php';
+    
+    $sql = "select * from login where user = '" . $_SESSION['loginadmin'] . "' ";
+    $loginresult = mysqli_query($connect, $sql);
+    if (mysqli_num_rows($loginresult)) {
+        $login = mysqli_fetch_array($loginresult);
+    } else {
+        header("Location:login.php");
+        die("<script>alert('参数错误')</script>");
+    }
+    
+    // 查询所有用户的登录信息（不覆盖之前的 `$login` 变量）
+    $sql = "SELECT * FROM login";
+    $result = mysqli_query($connect, $sql);
+    if (mysqli_num_rows($result)) {
+        $all_users = mysqli_fetch_array($result);
+        // 你可以处理或输出所有用户的信息
+    }
+    
+    // 查询 `text` 表的数据
+    $sql = "SELECT * FROM text";
+    $result = mysqli_query($connect, $sql);
+    if (mysqli_num_rows($result)) {
+        $text = mysqli_fetch_array($result);
+    }
+    
+    // 查询 `diySet` 表的数据
+    $sql = "SELECT * FROM diySet";
+    $result = mysqli_query($connect, $sql);
+    if (mysqli_num_rows($result)) {
+        $diy = mysqli_fetch_array($result);
+    }
 ?>
 
 
@@ -59,6 +66,7 @@ if (mysqli_num_rows($result)) {
     <!-- App css -->
     <link href="/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="/admin/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <link href="/admin/assets/fontawesome/css/all.min.css" rel="stylesheet" >
     <link href="/Style/css/loading.css" rel="stylesheet">
     <link href="../Style/toastr/toastr.css" rel="stylesheet">
 </head>
@@ -105,6 +113,12 @@ if (mysqli_num_rows($result)) {
     $imgnub = $loveImg['img'];
     $adminuser = "admin";
     $adminpw = "love";
+    //礼物管理
+    $gift = "select count(id) as gift from gifts";
+    $resgift = mysqli_query($connect, $gift);
+    $giftImg = mysqli_fetch_array($resgift);
+    $giftnub = $giftImg['gift'];
+    
     ?>
 
     <!--顶部栏 Start-->
@@ -113,13 +127,8 @@ if (mysqli_num_rows($result)) {
         <div class="container-fluid">
 
             <!-- LOGO -->
-            <a href="/admin/index.php" class="topnav-logo">
-                <span class="topnav-logo-lg">
-                    <?php echo $text['title'] ?>
-                </span>
-                <span class="topnav-logo-sm">
-                    <?php echo $text['title'] ?>
-                </span>
+            <a href="/index.php" class="topnav-logo">
+                <span class="topnav-logo-lg">首页</span>
             </a>
 
             <ul class="list-unstyled topbar-right-menu float-right mb-0">
@@ -135,11 +144,11 @@ if (mysqli_num_rows($result)) {
                     <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown"
                         id="topbar-userdrop" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="account-user-avatar">
-                            <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $text['userQQ'] ?>&s=640"
+                            <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $login['userQQ'] ?>&s=640"
                                 alt="user-image" class="rounded-circle">
                         </span>
                         <span>
-                            <span class="account-user-name"><?php echo $text['userName'] ?></span>
+                            <span class="account-user-name"><?php echo $login['username'] ?></span>
                             <span class="account-position">操作</span>
                         </span>
                     </a>
@@ -186,9 +195,9 @@ if (mysqli_num_rows($result)) {
             <div class="left-side-menu">
                 <div class="leftbar-user">
                     <a href="#">
-                        <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $text['userQQ'] ?>&s=640" alt="user-image"
+                        <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $login['userQQ'] ?>&s=640" alt="user-image"
                             height="42" class="rounded-circle shadow-sm">
-                        <span class="leftbar-user-name"><?php echo $text['title'] ?></span>
+                        <span class="leftbar-user-name"><?php echo $login['username'] ?></span>
                     </a>
                 </div>
 
@@ -245,6 +254,23 @@ if (mysqli_num_rows($result)) {
                             </span>
                         </a>
                     </li>
+                    
+                    <li class="side-nav-item">
+                        <a href="/admin/giftsSet.php" class="side-nav-link">
+                            <i class="dripicons-heart"></i>
+                            <span> 礼物管理
+                                <span class="badge badge-danger float-right"><?php echo $giftnub ?></span>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li class="side-nav-item">
+                        <a href="/admin/photoManage.php" class="side-nav-link">
+                            <i class="dripicons-photo-group"></i>
+                            <span> 图库管理</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                    </li>
 
                     <li class="side-nav-item">
                         <a href="/admin/aboutSet.php" class="side-nav-link">
@@ -269,29 +295,7 @@ if (mysqli_num_rows($result)) {
                             <span class="menu-arrow"></span>
                         </a>
                     </li>
-
-                    <li class="side-nav-item">
-                        <a href="/admin/Like_Girl.php" class="side-nav-link">
-                            <i class="dripicons-information"></i>
-                            <span> 关于Like Girl</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                    </li>
                 </ul>
-
-
-                <!-- Help Box -->
-                <div class="help-box text-center">
-                    <a href="javascript: void(0);" class="float-right close-btn text-body">
-                        <i class="mdi mdi-close"></i>
-                    </a>
-                    <img src="assets/images/help-icon.svg" height="90" alt="Helper Icon Image" />
-                    <h5 class="mt-3">Like_Girl V5.2.0</h5>
-                    <p class="mb-3">愿得一人心 白首不相离</p>
-                    <a href="https://blog.kikiw.cn/index.php/archives/65/" target="_blank" class="btn btn-outline-primary btn-sm">购买Pro版本</a>
-                </div>
-                <!-- end Help Box -->
-                <!-- End Sidebar -->
 
 
                 <div class="clearfix"></div>

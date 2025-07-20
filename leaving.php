@@ -92,7 +92,7 @@ include_once 'head.php';
                     return false
                 }
                 $.ajax({
-                    url: "https://jkapi.com/api/qqinfo?qq=" + QQ,
+                    url: "https://api.mmp.cc/api/qqname?qq=" + QQ,
                     type: "GET",
                     timeout: 5000,
                     dataType: "json",
@@ -111,8 +111,8 @@ include_once 'head.php';
                             toastr["warning"](result.msg, "Like_Girl");
                         } else if (result.code == 200) {
                             loadingname();
-                            $("#nickname").val(result.nick);
-                            $(".avatar").attr("src", result.avatar);
+                            $("#nickname").val(result.data.name);
+                            $(".avatar").attr("src", result.data.imgurl);
                             setTimeout(function () {
                                 removeLoading('test');
                                 toastr["success"]("获取昵称头像成功", "Like_Girl");

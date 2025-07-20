@@ -9,7 +9,7 @@ if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
     $imgDatd = trim($_POST['imgDatd']);
     $imgUrl = htmlspecialchars(trim($_POST['imgUrl']), ENT_QUOTES);
     
-    $sql = "update loveImg set imgText = '$imgText', imgDatd = '$imgDatd',imgUrl ='$imgUrl' where id = '$id'";
+    $sql = "update loveimg set imgText = '$imgText', imgDatd = '$imgDatd',imgUrl ='$imgUrl' where id = '$id'";
     $result = mysqli_query($connect, $sql);
     if ($result) {
         echo "1";

@@ -9,6 +9,8 @@ if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
     $writing = htmlspecialchars(trim($_POST['writing']), ENT_QUOTES);
     $WebPjax = trim($_POST['WebPjax']);
     $WebBlur = trim($_POST['WebBlur']);
+    $WebMusic = trim($_POST['WebMusic']);
+    $WebLive2D = trim($_POST['WebLive2D']);
 
     $sql = "update text set title = '$title', logo = '$logo' , writing = '$writing' where id = '1'";
 
@@ -20,7 +22,7 @@ if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
     }
 
 
-    $diy = "update diySet set Pjaxkg = '$WebPjax' , Blurkg = '$WebBlur' where id = '1'";
+    $diy = "update diySet set Pjaxkg = '$WebPjax' , Blurkg = '$WebBlur' , musickg = '$WebMusic', live2dkg = '$WebLive2D' where id = '1'";
     $diyresult = mysqli_query($connect, $diy);
     if ($diyresult) {
         echo "3";

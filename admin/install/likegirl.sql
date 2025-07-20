@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
+-- version 4.4.15.10
+-- https://www.phpmyadmin.net
 --
--- 主机： localhost
--- 生成日期： 2024-11-07 21:51:27
--- 服务器版本： 5.7.44-log
--- PHP 版本： 8.0.26
+-- Host: localhost:3306
+-- Generation Time: 2025-07-21 01:18:55
+-- 服务器版本： 5.6.51-log
+-- PHP Version: 7.0.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -18,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 数据库： `LikeGirl v5.2.0`
+-- Database: `likegirl`
 --
 
 -- --------------------------------------------------------
@@ -27,7 +26,7 @@ SET time_zone = "+00:00";
 -- 表的结构 `about`
 --
 
-CREATE TABLE `about` (
+CREATE TABLE IF NOT EXISTS `about` (
   `id` int(11) NOT NULL,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `aboutimg` varchar(100) NOT NULL COMMENT '背景图片',
@@ -68,43 +67,61 @@ INSERT INTO `about` (`id`, `title`, `aboutimg`, `info1`, `info2`, `info3`, `btn1
 -- 表的结构 `article`
 --
 
-CREATE TABLE `article` (
+CREATE TABLE IF NOT EXISTS `article` (
   `id` int(11) NOT NULL,
   `articletext` varchar(2000) COLLATE utf8_unicode_ci NOT NULL,
   `articletime` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `articletitle` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `articlename` varchar(20) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `diySet`
+-- 表的结构 `diyset`
 --
 
-CREATE TABLE `diySet` (
+CREATE TABLE IF NOT EXISTS `diyset` (
   `id` int(11) NOT NULL,
-  `headCon` text NOT NULL,
-  `footerCon` text NOT NULL,
-  `cssCon` text NOT NULL,
+  `Blurkg` varchar(1) NOT NULL COMMENT '高斯模糊开关',
   `Pjaxkg` varchar(1) NOT NULL COMMENT 'pjax开关',
-  `Blurkg` varchar(1) NOT NULL COMMENT '高斯模糊开关'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `musickg` varchar(1) NOT NULL COMMENT '音乐播放器开关',
+  `live2dkg` varchar(1) NOT NULL,
+  `headCon` text NOT NULL,
+  `cssCon` text NOT NULL,
+  `footerCon` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 --
--- 转存表中的数据 `diySet`
+-- 转存表中的数据 `diyset`
 --
 
-INSERT INTO `diySet` (`id`, `headCon`, `footerCon`, `cssCon`, `Pjaxkg`, `Blurkg`) VALUES
-(1, '<!-- 这里可以嵌入自定义字体CDN加速地址 -->', '&lt;!--&lt;script src=&quot;https://img-love.kikiw.cn/jsxg/yh/yinghua.js&quot;&gt;&lt;/script&gt;--&gt;', '/* 这里可以写入自定义CSS样式内容 无需带 style 标签 */', '1', '1');
+INSERT INTO `diyset` (`id`, `Blurkg`, `Pjaxkg`, `musickg`, `live2dkg`, `headCon`, `cssCon`, `footerCon`) VALUES
+(1, '2', '2', '2', '2', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `IPerror`
+-- 表的结构 `gifts`
 --
 
-CREATE TABLE `IPerror` (
+CREATE TABLE IF NOT EXISTS `gifts` (
+  `id` int(11) NOT NULL,
+  `gift_name` varchar(255) NOT NULL COMMENT '礼物名称',
+  `gift_description` text NOT NULL COMMENT '礼物描述',
+  `gift_from` varchar(255) NOT NULL COMMENT '赠送人',
+  `gift_price` decimal(10,2) NOT NULL COMMENT '礼物价格',
+  `imgUrl` varchar(255) NOT NULL COMMENT '礼物图片URL',
+  `gift_time` datetime DEFAULT NULL COMMENT '赠送时间'
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COMMENT='礼物墙';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `iperror`
+--
+
+CREATE TABLE IF NOT EXISTS `iperror` (
   `id` int(11) NOT NULL,
   `ipAdd` varchar(100) NOT NULL COMMENT 'ip归属地',
   `Time` varchar(200) NOT NULL COMMENT '时间',
@@ -118,7 +135,7 @@ CREATE TABLE `IPerror` (
 -- 表的结构 `leaving`
 --
 
-CREATE TABLE `leaving` (
+CREATE TABLE IF NOT EXISTS `leaving` (
   `id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户名字',
   `QQ` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'QQ号码',
@@ -126,27 +143,27 @@ CREATE TABLE `leaving` (
   `time` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `ip` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ip记录',
   `city` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '省/城市'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `leavSet`
+-- 表的结构 `leavset`
 --
 
-CREATE TABLE `leavSet` (
+CREATE TABLE IF NOT EXISTS `leavset` (
   `id` int(11) NOT NULL,
   `jiequ` varchar(10) NOT NULL COMMENT '截取长度',
   `lanjie` varchar(500) NOT NULL COMMENT '违禁符号',
   `lanjiezf` varchar(500) NOT NULL COMMENT '违禁词'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 --
--- 转存表中的数据 `leavSet`
+-- 转存表中的数据 `leavset`
 --
 
-INSERT INTO `leavSet` (`id`, `jiequ`, `lanjie`, `lanjiezf`) VALUES
-(1, '100', '`~!@#$^&*()=|{}\':;\',\\\\[\\\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“\'。，、？', '操垃圾傻逼妈');
+INSERT INTO `leavset` (`id`, `jiequ`, `lanjie`, `lanjiezf`) VALUES
+(1, '25', '`~!@#$^&*()=|{}'':;'',\\\\[\\\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“''。，、？', '草泥马');
 
 -- --------------------------------------------------------
 
@@ -154,31 +171,34 @@ INSERT INTO `leavSet` (`id`, `jiequ`, `lanjie`, `lanjiezf`) VALUES
 -- 表的结构 `login`
 --
 
-CREATE TABLE `login` (
+CREATE TABLE IF NOT EXISTS `login` (
   `id` int(11) NOT NULL,
   `user` varchar(100) NOT NULL COMMENT '登录用户名',
+  `username` varchar(100) NOT NULL,
+  `userQQ` char(32) NOT NULL,
   `pw` char(32) NOT NULL COMMENT '登录密码'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 --
 -- 转存表中的数据 `login`
 --
 
-INSERT INTO `login` (`id`, `user`, `pw`) VALUES
-(1, 'admin', '6f87ada9b67a092b27bcaf094c31aa41');
+INSERT INTO `login` (`id`, `user`, `username`, `userQQ`, `pw`) VALUES
+(1, 'admin1', 'boy', '123456', 'e10adc3949ba59abbe56e057f20f883e'),
+(2, 'admin2', 'girl', '654321', 'e10adc3949ba59abbe56e057f20f883e');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `loveImg`
+-- 表的结构 `loveimg`
 --
 
-CREATE TABLE `loveImg` (
+CREATE TABLE IF NOT EXISTS `loveimg` (
   `id` int(11) NOT NULL,
   `imgDatd` varchar(100) NOT NULL COMMENT '日期',
   `imgText` varchar(200) NOT NULL COMMENT '描述',
   `imgUrl` varchar(200) NOT NULL COMMENT '外链'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -186,12 +206,48 @@ CREATE TABLE `loveImg` (
 -- 表的结构 `lovelist`
 --
 
-CREATE TABLE `lovelist` (
+CREATE TABLE IF NOT EXISTS `lovelist` (
   `id` int(11) NOT NULL,
   `icon` int(1) NOT NULL COMMENT '是否完成',
   `eventname` varchar(200) CHARACTER SET utf8mb4 NOT NULL COMMENT '事件内容',
   `imgurl` varchar(300) COLLATE utf8_unicode_ci NOT NULL COMMENT '图片地址'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=86 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `picset`
+--
+
+CREATE TABLE IF NOT EXISTS `picset` (
+  `id` int(11) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `api` varchar(100) NOT NULL,
+  `token` varchar(150) NOT NULL,
+  `album_id` int(11) NOT NULL,
+  `type` varchar(10) NOT NULL,
+  `localpath` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `picset`
+--
+
+INSERT INTO `picset` (`id`, `name`, `api`, `token`, `album_id`, `type`, `localpath`) VALUES
+(1, 'likegirl', '', '', 0, '0', 'files');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `picture`
+--
+
+CREATE TABLE IF NOT EXISTS `picture` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL COMMENT '日期',
+  `url` varchar(200) NOT NULL COMMENT '描述',
+  `date` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -199,7 +255,7 @@ CREATE TABLE `lovelist` (
 -- 表的结构 `text`
 --
 
-CREATE TABLE `text` (
+CREATE TABLE IF NOT EXISTS `text` (
   `id` int(11) NOT NULL,
   `boy` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT '男name',
   `girl` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT '女name',
@@ -221,14 +277,14 @@ CREATE TABLE `text` (
   `userQQ` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '站长QQ',
   `userName` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT 'userName',
   `Animation` int(1) NOT NULL COMMENT '动画开关'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 转存表中的数据 `text`
 --
 
 INSERT INTO `text` (`id`, `boy`, `girl`, `title`, `logo`, `writing`, `boyimg`, `girlimg`, `startTime`, `icp`, `Copyright`, `card1`, `card2`, `card3`, `deci1`, `deci2`, `deci3`, `bgimg`, `userQQ`, `userName`, `Animation`) VALUES
-(1, 'Ki', 'Li', 'Like_Girl v5.2.0', 'Like_Girl v5.2.0', '喜欢花 喜欢浪漫 喜欢你~', '647159607', '917640289', '2022-06-05T00:07', '粤ICP备2021037776号', 'Copyright © 2022 - 2024 Like_Girl All Rights Reserved.', '点点滴滴', '留言板', '关于我们', '有人愿意听你碎碎念念也很浪漫', '在这里写下我们的留言祝福', '我们之间认识的经历回忆', 'https://lovey.kikiw.cn/Style/img/Cover.webp', '3439780232', 'Ki', 1);
+(1, 'boy', 'girl', 'Like_Girl', 'LikeGirl', '喜欢花 喜欢浪漫', '123456', '654321', '2020-01-01T00:00', '', 'Copyright © 2022 - 2025 Like_Girl All Rights Reserved.', '点点滴滴', '留言板', '关于我们', '有人愿意听你碎碎念念也很浪漫', '在这里写下我们的留言祝福', '我们之间认识的经历回忆', '', '123456', 'boy', 1);
 
 -- --------------------------------------------------------
 
@@ -236,7 +292,7 @@ INSERT INTO `text` (`id`, `boy`, `girl`, `title`, `logo`, `writing`, `boyimg`, `
 -- 表的结构 `warning`
 --
 
-CREATE TABLE `warning` (
+CREATE TABLE IF NOT EXISTS `warning` (
   `id` int(11) NOT NULL,
   `ip` varchar(50) NOT NULL COMMENT 'ip地址',
   `gsd` varchar(50) NOT NULL COMMENT '归属地',
@@ -245,146 +301,156 @@ CREATE TABLE `warning` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 转储表的索引
+-- Indexes for dumped tables
 --
 
 --
--- 表的索引 `about`
---
-ALTER TABLE `about`
-  ADD PRIMARY KEY (`id`);
-
---
--- 表的索引 `article`
+-- Indexes for table `article`
 --
 ALTER TABLE `article`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `diySet`
+-- Indexes for table `diyset`
 --
-ALTER TABLE `diySet`
+ALTER TABLE `diyset`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `IPerror`
+-- Indexes for table `gifts`
 --
-ALTER TABLE `IPerror`
+ALTER TABLE `gifts`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `leaving`
+-- Indexes for table `iperror`
+--
+ALTER TABLE `iperror`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `leaving`
 --
 ALTER TABLE `leaving`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `leavSet`
+-- Indexes for table `leavset`
 --
-ALTER TABLE `leavSet`
+ALTER TABLE `leavset`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `login`
+-- Indexes for table `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `loveImg`
+-- Indexes for table `loveimg`
 --
-ALTER TABLE `loveImg`
+ALTER TABLE `loveimg`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `lovelist`
+-- Indexes for table `lovelist`
 --
 ALTER TABLE `lovelist`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `text`
+-- Indexes for table `picset`
+--
+ALTER TABLE `picset`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `picture`
+--
+ALTER TABLE `picture`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `text`
 --
 ALTER TABLE `text`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `warning`
+-- Indexes for table `warning`
 --
 ALTER TABLE `warning`
   ADD PRIMARY KEY (`id`);
 
 --
--- 在导出的表使用AUTO_INCREMENT
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- 使用表AUTO_INCREMENT `about`
---
-ALTER TABLE `about`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- 使用表AUTO_INCREMENT `article`
+-- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `diyset`
+--
+ALTER TABLE `diyset`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `gifts`
+--
+ALTER TABLE `gifts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `iperror`
+--
+ALTER TABLE `iperror`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- 使用表AUTO_INCREMENT `diySet`
---
-ALTER TABLE `diySet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- 使用表AUTO_INCREMENT `IPerror`
---
-ALTER TABLE `IPerror`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- 使用表AUTO_INCREMENT `leaving`
+-- AUTO_INCREMENT for table `leaving`
 --
 ALTER TABLE `leaving`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
--- 使用表AUTO_INCREMENT `leavSet`
+-- AUTO_INCREMENT for table `leavset`
 --
-ALTER TABLE `leavSet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+ALTER TABLE `leavset`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- 使用表AUTO_INCREMENT `login`
+-- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- 使用表AUTO_INCREMENT `loveImg`
+-- AUTO_INCREMENT for table `loveimg`
 --
-ALTER TABLE `loveImg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+ALTER TABLE `loveimg`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
--- 使用表AUTO_INCREMENT `lovelist`
+-- AUTO_INCREMENT for table `lovelist`
 --
 ALTER TABLE `lovelist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=86;
 --
--- 使用表AUTO_INCREMENT `text`
+-- AUTO_INCREMENT for table `picset`
+--
+ALTER TABLE `picset`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `picture`
+--
+ALTER TABLE `picture`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
+--
+-- AUTO_INCREMENT for table `text`
 --
 ALTER TABLE `text`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- 使用表AUTO_INCREMENT `warning`
+-- AUTO_INCREMENT for table `warning`
 --
 ALTER TABLE `warning`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

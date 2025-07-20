@@ -35,11 +35,6 @@
 <script>
     $(function () {
         $("#Loadanimation").fadeOut(1000);
-        $.ajax({
-            url: "https://www.kikiw.cn/Love/likev5.php",
-            type: "GET",
-            timeout: 5000,
-        });
     });
 </script>
 
@@ -69,7 +64,7 @@
                     <!-- Logo -->
                     <div class="card-header pt-4 pb-4 text-center bg-primary">
                         <a href="##">
-                            <span style="color: #fff;font-size: 1.35rem; font-weight:bold">LikeGirl - Login</span>
+                            <span style="color: #fff;font-size: 1.2rem;">Like_Girl __ Login</span>
                         </a>
                     </div>
 
@@ -147,12 +142,15 @@
             alert("密码含有特殊字符 请重新输入")
             return false;
         }
+        
+        
+
     }
 
 </script>
 
 <footer class="footer footer-alt">
-    Copyright © 2022 - <?php echo date('Y'); ?> Ki. & <a href="https://blog.kikiw.cn/index.php/archives/52/" target="_blank">Like_Girl</a> All
+    Copyright © 2022 Ki. && <a href="https://blog.kikiw.cn/index.php/archives/24/" target="_blank">Like_Girl</a> All
     Rights Reserved.
 </footer>
 

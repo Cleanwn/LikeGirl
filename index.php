@@ -12,11 +12,11 @@ include_once 'head.php';
     <div id="pjax-container">
         <!-- 时间区域 -->
         <div class="time">
-            <span id="span_dt_dt"></span>
-            <b id="tian"></b>
-            <b id="shi"></b>
-            <b id="fen"></b>
-            <b id="miao"></b>
+            <span id="span_dt_dt">这是我们一起走过的</span>
+            <b id="tian">00天</b>
+            <b id="shi">00时</b>
+            <b id="fen">00分</b>
+            <b id="miao">00秒</b>
         </div>
         <!-- 卡片区域 -->
         <div class="card-wrap">
@@ -31,6 +31,7 @@ include_once 'head.php';
                         <p><?php echo $text['deci1'] ?></p>
                     </div>
                 </div>
+                
                 <div
                     class="card col-lg-4 col-sm-12 col-sm-x-12 flex-h <?php if ($text['Animation'] == "1") {
                         echo 'animated fadeInUp';
@@ -41,6 +42,7 @@ include_once 'head.php';
                         <p><?php echo $text['deci2'] ?></p>
                     </div>
                 </div>
+                
                 <div
                     class="card col-lg-4 col-sm-12 col-sm-x-12 flex-h <?php if ($text['Animation'] == "1") {
                         echo 'animated fadeInUp';
@@ -51,24 +53,37 @@ include_once 'head.php';
                         <p><?php echo $text['deci3'] ?></p>
                     </div>
                 </div>
+                
                 <div
-                    class="card-b col-lg-6 col-12 col-sm-12 flex-h <?php if ($text['Animation'] == "1") {
+                    class="card col-lg-4 col-sm-12 col-sm-x-12 flex-h <?php if ($text['Animation'] == "1") {
                         echo 'animated fadeInUp';
                     } ?>">
                     <img src="Style/img/home/home-photo.svg" alt="">
                     <div class="text">
-                        <span><a target="_self" href="loveImg.php">Love Photo</a></span>
-                        <p>恋爱相册 记录最美瞬间</p>
+                        <span><a target="_self" href="loveImg.php">恋爱相册</a></span>
+                        <p>记录最美瞬间</p>
                     </div>
                 </div>
+                
                 <div
-                    class="card-b col-lg-6 col-12 col-sm-12 flex-h <?php if ($text['Animation'] == "1") {
+                    class="card col-lg-4 col-sm-12 col-sm-x-12 flex-h <?php if ($text['Animation'] == "1") {
                         echo 'animated fadeInUp';
                     } ?>">
                     <img src="Style/img/home/home-list.svg" alt="">
                     <div class="text">
-                        <span><a target="_self" href="list.php">Love List</a></span>
-                        <p>恋爱列表 你我之间的约定</p>
+                        <span><a target="_self" href="list.php">恋爱列表</a></span>
+                        <p>你我之间的约定</p>
+                    </div>
+                </div>
+                
+                <div
+                    class="card col-lg-4 col-sm-12 col-sm-x-12 flex-h <?php if ($text['Animation'] == "1") {
+                        echo 'animated fadeInUp';
+                    } ?>">
+                    <img src="Style/img/home/home-gifts.svg" alt="">
+                    <div class="text">
+                        <span><a target="_self" href="gifts.php">礼物墙</a></span>
+                        <p>从玩偶到戒指</p>
                     </div>
                 </div>
             </div>

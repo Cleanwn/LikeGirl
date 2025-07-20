@@ -174,7 +174,6 @@ a:hover {
 .bg-img {
   width: 100%;
   box-sizing: border-box;
-  background: url(https://xi-1255495366.cos.ap-chengdu.myqcloud.com/46854f50ad83747f00cc49a33db38408.png) no-repeat center;
   background-size: cover;
   padding-top: 8rem;
   position: relative;
@@ -187,7 +186,7 @@ a:hover {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   background: #cfcfcfa1;
-  padding: 4rem 5rem 3rem;
+  padding: 4rem 0 3rem 0;
   border-radius: 4rem;
   user-select: none;
 }
@@ -423,7 +422,7 @@ a:hover {
     top: -50%;
     left: 0;
     background: linear-gradient(to bottom, transparent, #ffffff);
-    z-index: 1000;
+    z-index: 1;
 }
 
 .footer-warp .footer {

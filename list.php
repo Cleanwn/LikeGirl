@@ -26,27 +26,30 @@ $hideElement = ($row_count < 1);
                         class="list_texts <?php if ($text['Animation'] == "1") { ?>animated fadeInUp delay-03s<?php } ?>">
                         <div class="lovelist ">
                             <?php
-                            while ($list = mysqli_fetch_array($reslist)) {
-                                ?>
-                                <li class="cike">
-                                    <?php if ($list['icon']) { ?><i class="iconfont icon-chenggong2 com"></i> <?php } ?>
-                                    <?php if (!$list['icon']) { ?><i class="iconfont icon-chenggong2 air"></i> <?php } ?>
-                                    <span><?php echo $list['eventname']; ?></span>
-                                    <?php if ($list['imgurl']) { ?>
-                                        <svg class="icon" aria-hidden="true">
-                                            <use xlink:href="#icon-tupian"></use>
-                                        </svg><?php } ?>
-                                </li>
-                                <ul>
-                                    <li>
+                                while ($list = mysqli_fetch_array($reslist)) {
+                                    ?>
+                                    <li class="cike">
+                                        <?php if ($list['icon']) { ?><i class="iconfont icon-chenggong2 com"></i> <?php } ?>
+                                        <?php if (!$list['icon']) { ?><i class="iconfont icon-chenggong2 air"></i> <?php } ?>
+                                        <span><?php echo $list['eventname']; ?></span>
                                         <?php if ($list['imgurl']) { ?>
-                                            <img data-funlazy="<?php echo $list['imgurl']; ?>" alt="<?php echo $list['eventname']; ?>"> 
-                                        <?php } ?>
+                                            <svg class="icon" aria-hidden="true">
+                                                <use xlink:href="#icon-tupian"></use>
+                                            </svg><?php } ?>
                                     </li>
-                                </ul>
+                                    
+                                    <?php if ($list['imgurl']) { ?>
+                                    <ul>
+                                        <li>
+                                            
+                                            <img data-funlazy="<?php echo $list['imgurl']; ?>" alt="<?php echo $list['eventname']; ?>"> 
+
+                                        </li>
+                                    </ul>
+                                 <?php } ?>
+                                    
                                 <?php
-                            }
-                            ?>
+                            }?>
                         </div>
                     </div>
                 </div>

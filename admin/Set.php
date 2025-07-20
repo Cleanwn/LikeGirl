@@ -26,19 +26,34 @@ include_once 'Nav.php';
                                name="writing" value="<?php echo $text['writing'] ?>" required>
                     </div>
                     <div class="form-group">
-                        <label for="validationCustom06">是否关闭头像背景高斯模糊</label>
+                        <label for="validationCustom06">头像背景高斯模糊</label>
                         <select class="form-control" id="example-select" name="WebBlur">
                             <option value="1" <?php  if($diy['Blurkg'] == "1"){ ?> selected <?php } ?>>开启</option>
                             <option value="2" <?php  if($diy['Blurkg'] == "2"){ ?> selected <?php } ?> >关闭</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="validationCustom07">是否开启前端无刷新加载</label>
+                        <label for="validationCustom07">前端无刷新加载</label>
                         <select class="form-control" id="example-select" name="WebPjax">
                             <option value="1" <?php  if($diy['Pjaxkg'] == "1"){ ?> selected <?php } ?>>开启</option>
                             <option value="2" <?php  if($diy['Pjaxkg'] == "2"){ ?> selected <?php } ?> >关闭</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="validationCustom08">明月浩空音乐播放器</label>
+                        <select class="form-control" id="example-select" name="WebMusic">
+                            <option value="1" <?php  if($diy['musickg'] == "1"){ ?> selected <?php } ?>>开启</option>
+                            <option value="2" <?php  if($diy['musickg'] == "2"){ ?> selected <?php } ?> >关闭</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="validationCustom08">Live2D</label>
+                        <select class="form-control" id="example-select" name="WebLive2D">
+                            <option value="1" <?php  if($diy['live2dkg'] == "1"){ ?> selected <?php } ?>>开启</option>
+                            <option value="2" <?php  if($diy['live2dkg'] == "2"){ ?> selected <?php } ?> >关闭</option>
+                        </select>
+                    </div>
+                    
                     <div class="form-group mb-3 text_right">
                         <button class="btn btn-primary" type="button" id="adminPost">提交修改</button>
                     </div>
@@ -55,7 +70,7 @@ include_once 'Nav.php';
 
                 <form class="needs-validation" action="loveadminPost.php" method="post" novalidate>
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">男主Nanme</label>
+                        <label for="validationCustom01">男主Name</label>
                         <input type="text" class="form-control"  placeholder="请输入男主Name"
                                name="boy" value="<?php echo $text['boy'] ?>" required>
                     </div>

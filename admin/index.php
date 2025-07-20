@@ -5,11 +5,6 @@ include_once 'Nav.php';
 $liuyan = "select * from leaving order by id desc limit 0,6";
 $resliuyan = mysqli_query($connect, $liuyan);
 
-// 注释以下内容即可去除所有提示内容
-
-include_once "LG_Info.php";
-
-// 注释以上内容即可去除所有提示内容
 ?>
 
 

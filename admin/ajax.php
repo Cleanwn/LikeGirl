@@ -75,6 +75,8 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         var writing = $("input[name='writing']").val();
         var WebBlur = $("select[name='WebBlur']").val();
         var WebPjax = $("select[name='WebPjax']").val();
+        var WebMusic = $("select[name='WebMusic']").val();
+        var WebLive2D = $("select[name='WebLive2D']").val();
 
         $.ajax({
             url: "adminPost.php",
@@ -84,6 +86,8 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
                 writing: writing,
                 WebBlur: WebBlur,
                 WebPjax: WebPjax,
+                WebMusic: WebMusic,
+                WebLive2D: WebLive2D,
             },
             type: "POST",
             dataType: "text",
@@ -324,6 +328,78 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         }
         )
     })
+    $("#giftUpdaPost").click(function () {
+        var id = $("input[name='id']").val();
+        var gift_name = $("input[name='gift_name']").val();
+        var gift_description = $("textarea[name='gift_description']").val();
+        var gift_from = $("input[name='gift_from']").val();
+        var gift_price = $("input[name='gift_price']").val();
+        var gift_time = $("input[name='gift_time']").val();
+        var imgUrl = $("input[name='imgUrl']").val();
+
+        $.ajax({
+            url: "giftUpdaPost.php",
+            data: {
+                id: id,
+                gift_name: gift_name,
+                gift_description: gift_description,
+                gift_from: gift_from,
+                gift_price: gift_price,
+                gift_time: gift_time,
+                imgUrl: imgUrl
+            },
+            type: "POST",
+            dataType: "text",
+            success: function (res) {
+                if (res == 1) {
+                    toastr["success"]("修改礼物成功！", "Like_Girl");
+                    $('#giftUpdaPost').text('修改中...');
+                    $("#giftUpdaPost").attr("disabled", "disabled");
+                    setInterval("window.location.href='giftsSet.php'", 1000);
+                } else if (res == 0) {
+                    toastr["error"]("修改礼物失败！", "Like_Girl");
+                }
+            },
+            error: function (err) {
+                toastr["error"]("网络错误 请稍后重试！", "Like_Girl");
+            }
+        });
+    });
+    $("#giftAddPost").click(function () {
+        var gift_name = $("input[name='gift_name']").val();
+        var gift_description = $("textarea[name='gift_description']").val();
+        var gift_from = $("input[name='gift_from']").val();
+        var gift_price = $("input[name='gift_price']").val();
+        var gift_time = $("input[name='gift_time']").val();
+        var imgUrl = $("input[name='imgUrl']").val();
+
+        $.ajax({
+            url: "giftAddPost.php",
+            data: {
+                gift_name: gift_name,
+                gift_description: gift_description,
+                gift_from: gift_from,
+                gift_price: gift_price,
+                gift_time: gift_time,
+                imgUrl: imgUrl
+            },
+            type: "POST",
+            dataType: "text",
+            success: function (res) {
+                if (res == 1) {
+                    toastr["success"]("新增礼物成功！", "Like_Girl");
+                    $('#giftAddPost').text('添加中...');
+                    $("#giftAddPost").attr("disabled", "disabled");
+                    setInterval("window.location.href='giftsSet.php'", 1000);
+                } else if (res == 0) {
+                    toastr["error"]("新增礼物失败！", "Like_Girl");
+                }
+            },
+            error: function (err) {
+                toastr["error"]("网络错误 请稍后重试！", "Like_Girl");
+            }
+        });
+    });
     $("#listaddPost").click(function () {
         var eventname = $("input[name='eventname']").val();
         var icon = $("input[name='icon']").val();

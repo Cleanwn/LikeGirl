@@ -10,34 +10,35 @@ include_once 'Nav.php';
                 <h4 class="header-title mb-3">信息配置</h4>
 
                 <form class="needs-validation" action="userPost.php" method="post" novalidate>
-                    <div class="form-group">
-                        <label for="validationCustom01">是否开启前端加载动画</label>
-                        <select class="form-control" id="example-select" name="Webanimation">
-                            <option value="1" <?php  if($text['Animation'] == "1"){ ?> selected <?php } ?>>开启</option>
-                            <option value="2" <?php  if($text['Animation'] == "2"){ ?> selected <?php } ?> >关闭</option>
-                        </select>
+                    <div class="form-group mb-3">
+                        <label for="validationCustom05">昵称</label>
+                        <input type="text" class="form-control" id="validationCustom05" placeholder="请输入昵称"
+                               name="userName" value="<?php echo $login['username'] ?>" required>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="validationCustom05">管理员Name</label>
-                        <input type="text" class="form-control" id="validationCustom05" placeholder="请输入管理员Name"
-                               name="userName" value="<?php echo $text['userName'] ?>" required>
+                        <label for="validationCustom05">QQ</label>
+                        <input type="text" class="form-control" id="validationCustom05" placeholder="请输入QQ"
+                               name="userQQ" value="<?php echo $login['userQQ'] ?>" required>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="validationCustom05">管理员QQ</label>
-                        <input type="text" class="form-control" id="validationCustom05" placeholder="请输入管理员QQ"
-                               name="userQQ" value="<?php echo $text['userQQ'] ?>" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="validationCustom04">管理员登录账号</label>
+                        <label for="validationCustom04">账号</label>
                         <?php if ($login['user'] == $adminuser)  {?><span class="badge badge-danger-lighten"style="font-size: 0.8rem;">您的账号为默认账号 请尽快修改</span><?php }else{ ?> <span class="badge badge-success-lighten"style="font-size: 0.8rem;">账号由大小写字母与数字组成</span> <?php } ?>
-                        <input type="text" class="form-control"  placeholder="请输入需修改的管理员账号"
+                        <input type="text" class="form-control"  placeholder="请输入需修改的账号"
                                name="adminName" value="<?php echo $login['user'] ?>" required>
 
                     </div>
                     <div class="form-group mb-3">
-                        <label for="validationCustom05">管理员登录密码</label>
+                        <label for="validationCustom05">密码</label>
                         <?php if ($login['pw'] == md5($adminpw))  {?><span class="badge badge-danger-lighten"style="font-size: 0.8rem;">您的密码为默认密码 请尽快修改</span><?php }else{ ?> <span class="badge badge-success-lighten"style="font-size: 0.8rem;">密码由大小写字母与数字组成</span> <?php } ?>
                         <input class="form-control"  name="pw" type="password" value="" placeholder="不修改请留空">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="validationCustom01">前端加载动画</label>
+                        <select class="form-control" id="example-select" name="Webanimation">
+                            <option value="1" <?php  if($text['Animation'] == "1"){ ?> selected <?php } ?>>开启</option>
+                            <option value="2" <?php  if($text['Animation'] == "2"){ ?> selected <?php } ?> >关闭</option>
+                        </select>
                     </div>
 
                     <div class="form-group mb-3">

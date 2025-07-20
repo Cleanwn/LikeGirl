@@ -36,11 +36,6 @@ $Animation = $text['Animation'];
 
 
 <script>
-
-    console.log("%c Q & V | 3439780232", "color:#fff;background:#000;padding:8px 15px;font-weight: 700;border-radius:15px");
-    console.log("%c Like Girl 5.2.0 | Powered by Ki", "color:#fff;font-weight: 700;background:linear-gradient(270deg,#986fee,#8695e6,#68b7dd,#18d7d3);padding:8px 15px;border-radius:15px");
-    
-
     function setupVideoPlayer(video) {
         var videoContainer = $('<div class="video-container"></div>');
         var playPauseBtn = $('<div class="play-pause-btn"></div>');
@@ -122,7 +117,7 @@ $Animation = $text['Animation'];
 </script>
 <link rel="shortcut icon" href="/favicon.ico" />
 <meta name="keywords"
-    content="<?php echo $text['title'] ?>,Like Girl 5.2.0,LGNeUi,情侣小站,开源情侣网站,PHP情侣网站,情侣记录,情侣网站,情侣项目,情侣小窝,Love,LikeGirl,Ki,PHP情侣小站,情侣小站使用教程,情侣小站使用文档">
+    content="<?php echo $text['title'] ?>,Like Girl 情侣网站">
 <meta name="discription" content="<?php echo $text['writing'] ?> - Like Girl 5.2.0">
 <meta name="author" content="Ki">
 <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
@@ -152,8 +147,7 @@ $Animation = $text['Animation'];
 
 <?php
 echo htmlspecialchars_decode($diy['headCon'], ENT_QUOTES);
-if ($diy['Pjaxkg'] == "1"):
-    ?>
+if ($diy['Pjaxkg'] == "1"):?>
     <script>
         $(document).pjax('a[target!=_blank]', '#pjax-container', { fragment: '#pjax-container', timeout: 15000 });
         $(document).on('pjax:send', function () {
@@ -191,8 +185,10 @@ if ($diy['Pjaxkg'] == "1"):
         });
     </script>
 <?php endif; ?>
+
 <script src="../Style/js/nprogress.js?LikeGirl=<?php echo $version ?>"></script>
 <link href="../Style/css/nprogress.css?LikeGirl=<?php echo $version ?>" rel="stylesheet" type="text/css">
+
 <!-- 头部导航条 -->
 <div class="header-wrap">
     <div class="header">
@@ -200,7 +196,7 @@ if ($diy['Pjaxkg'] == "1"):
             <h1><a class="alogo" href="index.php"><?php echo $text['logo'] ?></a></h1>
         </div>
         <div class="word">
-            <span class="wenan"><?php echo $text['writing'] ?></span>
+            <span class="wenan"><a class="wenan" href="admin/index.php"><?php echo $text['writing'] ?></a></span>
         </div>
     </div>
 </div>
@@ -239,6 +235,15 @@ if ($diy['Pjaxkg'] == "1"):
     </div>
 </div>
 
+<!-- 明月浩空播放器 -->
+<?php if ($diy['musickg'] == "1"):?>
+    <script src="https://myhkw.cn/api/player/demo" id="myhk" key="demo" m="1"></script>
+<?php endif; ?>
+
+<!-- Live2D -->
+<?php if ($diy['live2dkg'] == "1"):?>
+    <script src="https://fastly.jsdelivr.net/npm/live2d-widgets@1.0.0-rc.4/dist/autoload.js"></script>
+<?php endif; ?>
 
 <style>
     .bg-img {
@@ -283,6 +288,7 @@ if ($diy['Pjaxkg'] == "1"):
         background: transparent !important;
     }
 </style>
+
 <style>
     <?php echo $diy['cssCon'] ?>
 </style>

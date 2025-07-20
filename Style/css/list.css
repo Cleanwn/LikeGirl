@@ -16,13 +16,13 @@
 }
 .list_texts img{
   width: 100%;
-  height: 100%;
+  /*height: 100%;*/
   object-fit: cover;
   max-height: 450px;
   box-shadow: 0 4px 8px 0 rgb(28 31 33 / 15%);
   border-radius: 12px;
-  border: 1px solid rgba(208, 206, 206, 0.6) !important;
-  margin: 1.5rem 0;
+  /*border: 1px solid rgba(208, 206, 206, 0.6) !important;*/
+  margin: 1rem 0;
 }
 .list_texts img:hover{
     /*cursor: pointer;*/
@@ -65,7 +65,13 @@
   font-size: 1.3rem;
   font-family: 'Noto Serif SC', serif;
   font-weight: 700;
+  color: black; /* 默认颜色 */
+  transition: color 0.3s ease; /* 过渡动画 */
 }
+.row .card .list_texts span:hover {
+    color: pink; /* 鼠标悬停时的颜色 */
+}
+
 .open img{
   width: 100%;
   height: 100%;
