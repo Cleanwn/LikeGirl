@@ -4,16 +4,9 @@
 情侣小站 LikeGirl 说明
 
 * 本项目来自Ki的开源情侣小站，属于二次分发内容。
-* 原项目 情侣小站 v5.2.0 已经停止更新。
+* 原项目 情侣小站v5.2.0 已经停止更新。
 
 * 祝您使用愉快！ 情侣小站团队
-
-- 演示地址：[LikeGirl v5.2.0 (Demo)](https://lovey.kikiw.cn)
-- 项目文档地址（文档非最新版）：[作者Blog](https://blog.kikiw.cn/index.php/archives/52/)
-
-![LikeGirl v5.2.0 小站首页.webp](https://s1.locimg.com/2024/11/07/84df7db1ca34c.webp)
-![LikeGirl v5.2.0 留言祝福-2.webp](https://s1.locimg.com/2024/11/07/9ab5cd34a4e5d.webp)
-![LikeGirl v5.2.0 恋爱相册-1.webp](https://s1.locimg.com/2024/11/07/ee3432fc821bd.webp)
 
 ### 前言
 
@@ -63,10 +56,4 @@
 
 - 愿得一人心 白首不相离
 - 珍惜眼前人 欢迎使用Like_Girl
-
-> 如当前项目对你有所帮助 可扫码赞助
-
-![收款码](https://blog.kikiw.cn/img/10661730990630_.pic.jpg) 
-
-
-
+- 
