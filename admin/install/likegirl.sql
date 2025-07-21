@@ -244,9 +244,9 @@ INSERT INTO `picset` (`id`, `name`, `api`, `token`, `album_id`, `type`, `localpa
 
 CREATE TABLE IF NOT EXISTS `picture` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL COMMENT '日期',
-  `url` varchar(200) NOT NULL COMMENT '描述',
-  `date` varchar(100) NOT NULL
+  `name` varchar(100) NOT NULL COMMENT '名字',
+  `url` varchar(200) NOT NULL COMMENT '外链',
+  `date` varchar(100) NOT NULL COMMENT '日期'
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

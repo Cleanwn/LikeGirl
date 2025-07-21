@@ -21,13 +21,15 @@ try {
         $token = $_POST['token'];
         $type = $_POST['type'];
         $albumId = isset($_POST['albumId']) ? $_POST['albumId'] : 0; 
+        $localpath = $_POST['localpath'];
+
         $msg = "配置失败";
         $status = false;
         if(filter_var($albumId, FILTER_VALIDATE_INT) || $albumId=='0'){
             $albumId = intval($albumId,10);
-            $sql = "update picset set name=?, api=?, token=?, type=?, album_id=? where id=1";
+            $sql = "update picset set name=?, api=?, token=?, type=?, album_id=?, localpath=? where id=1";
             $stmt = $connect->prepare($sql);
-            $stmt-> bind_param("ssssi", $name, $api, $token, $type, $albumId);
+            $stmt-> bind_param("ssssis", $name, $api, $token, $type, $albumId, $localpath);
             
             if ($stmt->execute()) {
                 $msg = "配置成功";
@@ -50,9 +52,9 @@ try {
     $config = mysqli_fetch_array($query);
     $authorization = 'Bearer '.$config['token'];
     $url = $config['api'];
-    $localPath = $config['localpath'];
     $type = $config['type'];
     $albumId = $config['album_id'];
+    $localPath = $config['localpath'];
     
     switch ($func) {
         case 'upload':

@@ -31,12 +31,12 @@ $config = mysqli_fetch_array($query);
                         <label id="switchurl" style="display:block;" for="switch3" data-on-label="图床"
                                data-off-label="本地"></label>
                     </div>
-
-                    <!-- <div class="form-group mb-3">
+                    
+                    <div class="form-group mb-3">
                         <label for="validationCustom01">本地-存储路径</label>
-                        <input name="localpath" type="text" class="form-control" id="validationCustom01"
+                        <input name="localpath" type="text" class="form-control" id="validationCustom05"
                                placeholder="photos" value="<?php echo $config['localpath']?>" required>
-                    </div> -->
+                    </div>
                                         
                     <div class="form-group mb-3">
                         <label for="validationCustom01">图床-名称</label>
