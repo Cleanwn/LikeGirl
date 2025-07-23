@@ -34,31 +34,37 @@ $config = mysqli_fetch_array($query);
                     
                     <div class="form-group mb-3">
                         <label for="validationCustom01">本地-存储路径</label>
-                        <input name="localpath" type="text" class="form-control" id="validationCustom05"
+                        <input name="localpath" type="text" class="form-control" id="validationCustom01"
                                placeholder="photos" value="<?php echo $config['localpath']?>" required>
                     </div>
-                                        
+
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">图床-名称</label>
-                        <input name="name" type="text" class="form-control" id="validationCustom01"
-                               placeholder="兰空图床" value="<?php echo $config['name']?>" required>
+                        <label for="validationCustom01">七牛云-accessKey</label>
+                        <input name="accessKey" type="password" class="form-control" id="validationCustom02"
+                               placeholder="" value="<?php echo $config['accessKey']?>"  required autocomplete="off">
                     </div>
                     
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">图床-API地址</label>
-                        <input name="api" type="text" class="form-control" id="validationCustom02"
-                               placeholder="https://xxx.com/api/v1" value="<?php echo $config['api']?>" required>
+                        <label for="validationCustom01">七牛云-secretKey</label>
+                        <input name="secretKey" type="password" class="form-control" id="validationCustom03"
+                               placeholder="" value="<?php echo $config['secretKey']?>"  required autocomplete="off">
                     </div>
                     
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">图床-接口认证</label>
-                        <input name="token" type="password" class="form-control" id="validationCustom03"
-                               placeholder="1x|1bJ...CDr1Ob5" value="<?php echo $config['token']?>"  required autocomplete="off">
+                        <label for="validationCustom01">七牛云-域名</label>
+                        <input name="api" type="text" class="form-control" id="validationCustom04"
+                               placeholder="" value="<?php echo $config['api']?>" required>
+                    </div>
+                               
+                    <div class="form-group mb-3">
+                        <label for="validationCustom01">七牛云-bucket</label>
+                        <input name="name" type="text" class="form-control" id="validationCustom05"
+                               placeholder="" value="<?php echo $config['name']?>" required>
                     </div>
                     
                     <div class="form-group mb-3">
                         <label for="validationCustom01">图床-相册ID<span class="margin_left badge badge-success-lighten">（可选）</span></label>
-                        <input name="albumId" type="text" class="form-control" id="validationCustom04"
+                        <input name="albumId" type="text" class="form-control" id="validationCustom06"
                                placeholder="1xx" value="<?php echo $config['album_id']?>">
                     </div>
                     
@@ -80,7 +86,7 @@ document.getElementById('customForm').addEventListener('submit', function (event
     const typeValue = document.getElementById('switch3').checked ? '1' : '0';
     formData.set('type', typeValue); 
 
-    if (typeValue == '1' && (!formData.get('name') || !formData.get('api') || !formData.get('token'))) {
+    if (typeValue == '1' && (!formData.get('name') || !formData.get('api') || !formData.get('accessKey') || !formData.get('secretKey'))) {
         toastr["warning"]("信息未填写完整", "LikeGirl");
         return;
     }

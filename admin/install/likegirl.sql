@@ -223,18 +223,19 @@ CREATE TABLE IF NOT EXISTS `picset` (
   `id` int(11) NOT NULL,
   `name` varchar(40) NOT NULL,
   `api` varchar(100) NOT NULL,
-  `token` varchar(150) NOT NULL,
+  `accessKey` varchar(150) NOT NULL,
+  `secretKey` varchar(150) NOT NULL,
   `album_id` int(11) NOT NULL,
   `type` varchar(10) NOT NULL,
   `localpath` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `picset`
 --
 
-INSERT INTO `picset` (`id`, `name`, `api`, `token`, `album_id`, `type`, `localpath`) VALUES
-(1, 'likegirl', '', '', 0, '0', 'files');
+INSERT INTO `picset` (`id`, `name`, `api`, `accessKey`, `secretKey`, `album_id`, `type`, `localpath`) VALUES
+(1, '', '', '', '', 0, '0', 'files');
 
 -- --------------------------------------------------------
 
@@ -244,9 +245,9 @@ INSERT INTO `picset` (`id`, `name`, `api`, `token`, `album_id`, `type`, `localpa
 
 CREATE TABLE IF NOT EXISTS `picture` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL COMMENT '名字',
-  `url` varchar(200) NOT NULL COMMENT '外链',
-  `date` varchar(100) NOT NULL COMMENT '日期'
+  `name` varchar(100) NOT NULL COMMENT '日期',
+  `url` varchar(200) NOT NULL COMMENT '描述',
+  `date` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

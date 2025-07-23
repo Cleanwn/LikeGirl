@@ -1,6 +1,12 @@
 <?php
 session_start();
 include_once 'connect.php';
+
+//七牛云
+require_once __DIR__ . '/qiniu/autoload.php';
+use Qiniu\Auth;
+use Qiniu\Storage\UploadManager;
+
 $sql = "select * from login where user = '" . $_SESSION['loginadmin'] . "' ";
 $loginresult = mysqli_query($connect, $sql);
 if (mysqli_num_rows($loginresult)) {} else {
@@ -16,9 +22,10 @@ try {
     }
     
     if($func=='config'){
-        $name = $_POST['name'];
+        $accessKey = $_POST['accessKey'];
+        $secretKey = $_POST['secretKey'];
         $api = $_POST['api'];
-        $token = $_POST['token'];
+        $name = $_POST['name'];
         $type = $_POST['type'];
         $albumId = isset($_POST['albumId']) ? $_POST['albumId'] : 0; 
         $localpath = $_POST['localpath'];
@@ -27,9 +34,9 @@ try {
         $status = false;
         if(filter_var($albumId, FILTER_VALIDATE_INT) || $albumId=='0'){
             $albumId = intval($albumId,10);
-            $sql = "update picset set name=?, api=?, token=?, type=?, album_id=?, localpath=? where id=1";
+            $sql = "update picset set name=?, api=?, accessKey=?, secretKey=?, type=?, album_id=?, localpath=? where id=1";
             $stmt = $connect->prepare($sql);
-            $stmt-> bind_param("ssssis", $name, $api, $token, $type, $albumId, $localpath);
+            $stmt-> bind_param("sssssis", $name, $api, $accessKey, $secretKey, $type, $albumId, $localpath);
             
             if ($stmt->execute()) {
                 $msg = "配置成功";
@@ -50,8 +57,10 @@ try {
     $sql = "select * from picset where id=1";
     $query = mysqli_query($connect, $sql);
     $config = mysqli_fetch_array($query);
-    $authorization = 'Bearer '.$config['token'];
-    $url = $config['api'];
+    $accessKey = $config['accessKey'];
+    $secretKey = $config['secretKey'];
+    $name = $config['name'];
+    $api = $config['api'];
     $type = $config['type'];
     $albumId = $config['album_id'];
     $localPath = $config['localpath'];
@@ -59,6 +68,8 @@ try {
     switch ($func) {
         case 'upload':
             $saveurl = '';
+            $date = '';
+            
             $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
             $maxFileSize = 10; # 最大上传 10 Mb
             
@@ -76,32 +87,32 @@ try {
                 throw new Exception("文件大小超过限制($maxFileSize MB)!");
             }
             
-            $fileTmpPath = $_FILES['file']['tmp_name'];
+            $filePath = $_FILES['file']['tmp_name'];
             
-            if($type == '1'){ // 上传图床
-                $ch = curl_init($url.'/upload');
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            if($type == '1'){ // 上传七牛云图床
+                // 文件路径
+                $key = 'likegirl/' . date('YmdHis') . '_' . uniqid() . '.' . $fileExt;
                 
-                curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                    'Authorization: ' .$authorization,
-                    'Content-Type: multipart/form-data'
-                ]);
-                $postFields = [
-                    'file' =>  new CURLFile($fileTmpPath, $fileExt, $fileName)
-                ];
-                if ($albumId != 0) {
-                    $postFields['album_id'] = $albumId;
-                }
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
-                $response = curl_exec($ch);
-                $responseData = json_decode($response, true);
-                curl_close($ch);
+                // 初始化上传
+                $auth = new Auth($accessKey, $secretKey);
+                $token = $auth->uploadToken($name);
+                $uploadMgr = new UploadManager();
                 
-                if ($responseData.status){
-                    $saveurl = $responseData['data']['links']['url'];
-                    echo $response;
-                }else{
-                    throw new Exception("文件上传失败！");
+                list($ret, $err) = $uploadMgr->putFile($token, $key, $filePath);
+                            
+                if ($err == null) {
+                    $saveurl = $api . $ret['key'];
+                    echo json_encode([
+                        'status' => true,
+                        'message' => '文件上传成功！',
+                        'data' =>[
+                            'links' =>[
+                                'url' => $saveurl
+                            ]
+                        ]
+                    ]);
+                } else {
+                    throw new Exception("文件存储失败！");
                 }
 
             }else{ // 存储本地
@@ -116,15 +127,8 @@ try {
                 $newFileName = uniqid() . time() . '.' . $fileExt;
                 $saveurl = $localPath.'/'.$newFileName;
 
-                if (move_uploaded_file($fileTmpPath, $saveurl)) {
+                if (move_uploaded_file($filePath, $saveurl)) {
                     $saveurl = $baseUrl . '/admin/' . $saveurl;
-                    
-                    $sql = "INSERT INTO picture (name, url, date) VALUES (?, ?, ?)";
-                    $stmt = $connect->prepare($sql);
-                    $now = date('Y-m-d H:i:s'); // 当前时间
-                    $stmt->bind_param("sss", $fileName, $saveurl, $now);
-                    $stmt->execute();
-
                     echo json_encode([
                         'status' => true,
                         'message' => '文件上传成功！',
@@ -138,6 +142,14 @@ try {
                     throw new Exception("文件存储失败！");
                 }
             }
+            
+            // 写入数据库
+            $sql = "INSERT INTO picture (name, url, date) VALUES (?, ?, ?)";
+            $stmt = $connect->prepare($sql);
+            $date = date('Y-m-d H:i:s'); // 当前时间
+            $stmt->bind_param("sss", $fileName, $saveurl, $date);
+            $stmt->execute();
+            
             return;
 
         case 'get_img':

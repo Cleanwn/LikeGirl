@@ -507,7 +507,7 @@ uploadBtn.addEventListener('click', function(e) {
         }
     })
     .catch(error => {
-        toastr["error"]("上传失败", "LikeGirl");
+        toastr["error"]("不支持的文件格式!", "LikeGirl");
     })
     .finally(() => {
         uploadBtn.disabled = false;
