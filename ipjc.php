@@ -14,7 +14,7 @@ while ($IPinfo = mysqli_fetch_array($ipres)) {
     $ip = $_SERVER["REMOTE_ADDR"];
 
     if (in_array(getenv("REMOTE_ADDR"), $banned_ip)) {
-        die ("<script>alert('你的IP($ip)已被封禁，禁止访问本页面');location.href = 'error.php';</script>");
+        die ("<script>location.href = 'error.php';</script>");
 
     }
 }

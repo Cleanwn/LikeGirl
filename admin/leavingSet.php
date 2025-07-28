@@ -31,7 +31,7 @@ if (!$result)
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="text-lg-right">
-                            <a class="fabu" href="/admin/leavP.php">
+                            <a class="fabu" href="/admin/leavingP.php">
                                 <button type="button" class="btn btn-success mb-2 mr-2"><i
                                         class=" mdi mdi-brightness-5"></i> 留言相关设置
                                 </button>
@@ -127,7 +127,7 @@ if (!$result)
 <script>
     function del(id, text) {
         if (confirm('您确认要删除 ' + text + ' 内容吗')) {
-            location.href = 'delleav.php?id=' + id + '&text' + text;
+            location.href = 'leavingDel.php?id=' + id + '&text' + text;
         }
     }
 </script>

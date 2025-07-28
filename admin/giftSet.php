@@ -48,7 +48,7 @@ $resGifts = mysqli_query($connect, $gifts);
                             <td>￥<?php echo $gift['gift_price'] ?></td>
                             <td><?php echo date('Y-m-d H:i:s', strtotime($gift['gift_time'])) ?></td>
                             <td>
-                                <a href="giftmod.php?id=<?php echo $gift['id'] ?>">
+                                <a href="giftMod.php?id=<?php echo $gift['id'] ?>">
                                     <button type="button" class="btn btn-secondary btn-rounded">
                                         <i class="mdi mdi-clipboard-text-play-outline mr-1"></i>修改
                                     </button>
@@ -73,7 +73,7 @@ $resGifts = mysqli_query($connect, $gifts);
 <script>
     function del(id, giftName) {
         if (confirm('您确认要删除 ' + giftName + ' 这个礼物吗？')) {
-            location.href = 'giftdel.php?id=' + id;
+            location.href = 'giftDel.php?id=' + id;
         }
     }
 </script>

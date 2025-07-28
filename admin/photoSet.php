@@ -41,25 +41,25 @@ $config = mysqli_fetch_array($query);
                     <div class="form-group mb-3">
                         <label for="validationCustom01">七牛云-accessKey</label>
                         <input name="accessKey" type="password" class="form-control" id="validationCustom02"
-                               placeholder="" value="<?php echo $config['accessKey']?>"  required autocomplete="off">
+                               placeholder="1x|1bJ...CDr1Ob5" value="<?php echo $config['accessKey']?>"  required autocomplete="off">
                     </div>
                     
                     <div class="form-group mb-3">
                         <label for="validationCustom01">七牛云-secretKey</label>
                         <input name="secretKey" type="password" class="form-control" id="validationCustom03"
-                               placeholder="" value="<?php echo $config['secretKey']?>"  required autocomplete="off">
+                               placeholder="1x|1bJ...CDr1Ob5" value="<?php echo $config['secretKey']?>"  required autocomplete="off">
                     </div>
                     
                     <div class="form-group mb-3">
                         <label for="validationCustom01">七牛云-域名</label>
                         <input name="api" type="text" class="form-control" id="validationCustom04"
-                               placeholder="" value="<?php echo $config['api']?>" required>
+                               placeholder="https://xxx.com/api/v1" value="<?php echo $config['api']?>" required>
                     </div>
                                
                     <div class="form-group mb-3">
                         <label for="validationCustom01">七牛云-bucket</label>
                         <input name="name" type="text" class="form-control" id="validationCustom05"
-                               placeholder="" value="<?php echo $config['name']?>" required>
+                               placeholder="bucket" value="<?php echo $config['name']?>" required>
                     </div>
                     
                     <div class="form-group mb-3">

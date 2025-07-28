@@ -47,27 +47,25 @@
 </script>
 
 <?php
-
-$file = $_GET['route'];
-
-include_once 'Database.php';
-include_once 'Function.php';
-
-if ($file){
-    $ipcharu = "insert into warning (ip,gsd,time,file) values (?,?,?,?)";
-    $stmt = $conn->prepare($ipcharu);
-    $stmt->bind_param("ssss", $ip, $gsd, $time, $file);
-    $ip = $_SERVER["REMOTE_ADDR"];
-    $gsd = get_ip_city_New($ip);
-    $time = gmdate("Y-m-d H:i:s", time() + 8 * 3600);
     $file = $_GET['route'];
-    $result = $stmt->execute();
-    if (!$result) echo "错误信息：" . $stmt->error;
-    $stmt->fetch();
-}else{
-    die ("<script>alert('参数错误 请注意你的行为');</script");
-}
 
+    include_once 'Database.php';
+    include_once 'Function.php';
+    
+    if ($file){
+        $ipcharu = "insert into warning (ip,gsd,time,file) values (?,?,?,?)";
+        $stmt = $conn->prepare($ipcharu);
+        $stmt->bind_param("ssss", $ip, $gsd, $time, $file);
+        $ip = $_SERVER["REMOTE_ADDR"];
+        $gsd = get_ip_city_New($ip);
+        $time = gmdate("Y-m-d H:i:s", time() + 8 * 3600);
+        $file = $_GET['route'];
+        $result = $stmt->execute();
+        if (!$result) echo "错误信息：" . $stmt->error;
+        $stmt->fetch();
+    }else{
+        die ("<script>alert('参数错误 请注意你的行为');</script");
+    }
 ?>
 
 <style>
@@ -103,24 +101,24 @@ if ($file){
                     <div class="card-header pt-4 pb-4 text-center bg-primary">
                         <a href="##">
                                 <span
-                                        style="color: #fff;font-size: 1.3rem;font-family: '宋体';font-weight: 700;">你的行为已被记录到数据库</span>
+                                        style="color: #fff;font-size: 1.3rem;font-family: '宋体';font-weight: 700;">你的行为已被记录</span>
                         </a>
                     </div>
 
                     <div class="card-body p-4">
 
                         <div class="text-center w-75 m-auto">
-                            <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Like_Girl 5.2.0</h4>
+                            <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Like_Girl</h4>
                             <div class="info">温馨提示：请停止你的行为<i style="color: #ff9b9b;"><?php echo $ip ?></i></div>
                         </div>
-                        <div class="text-center w-75 m-auto" style="margin-bottom: 40px!important;">
-                            <img src="https://img.gejiba.com/images/ff63a429a6fbd20d6748242b182d2159.jpg" style="width: 100%;border-radius: 10px;box-shadow: 0 0 35px 0 rgb(154 161 171 / 25%);">
+                        <div class="text-center w-75 m-auto" style="margin-bottom: 30px!important;">
+                            <i class="dripicons-warning" style="font-size: 40px; color: red"></i>
                         </div>
 
                         <div class="form-group mb-0 text-center">
-                            <a href="https://wpa.qq.com/msgrd?v=3&uin=3439780232&site=qq&menu=yes">
+                            <a href="">
                                 <button
-                                        class="btn btn-primary" type="submit"> 我有疑问
+                                        class="btn btn-primary" type="submit">我知道了
                                 </button>
                             </a>
                         </div>

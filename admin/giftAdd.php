@@ -4,7 +4,7 @@ include_once 'Nav.php';
 $inv_date = date("Y-m-d");
 ?>
 
-<link rel="stylesheet" href="/admin/assets/css/wg.photo.select.css">
+<link rel="stylesheet" href="/admin/assets/css/photo.select.css">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -125,8 +125,8 @@ $inv_date = date("Y-m-d");
   </div>
 </div>
 
-<script src="/admin/assets/js/wg.photo.upload.js"></script>
-<script src="/admin/assets/js/wg.photo.list.js"></script>
+<script src="/admin/assets/js/photo.upload.js"></script>
+<script src="/admin/assets/js/photo.list.js"></script>
 
 <script>
 function check() {

@@ -34,7 +34,7 @@ $resarticle = mysqli_query($connect, $article);
                     </tr>
                     </thead>
 
-                    <form class="needs-validation" action="littleupda.php" method="post">
+                    <form class="needs-validation" action="littleUpdaPost.php" method="post">
                         <tbody>
                         <?php
                         $SerialNumber = 0;
@@ -51,7 +51,7 @@ $resarticle = mysqli_query($connect, $article);
                                 <td><?php echo $info['articletime'] ?></td>
                                 <td><?php echo $info['articlename'] ?></td>
                                 <td>
-                                    <a href="modlitt.php?id=<?php echo $info['id'] ?>">
+                                    <a href="littleMod.php?id=<?php echo $info['id'] ?>">
                                         <button type="button" class="btn btn-secondary btn-rounded">
                                             <i class=" mdi mdi-clipboard-text-play-outline mr-1"></i>修改
                                         </button>
@@ -81,7 +81,7 @@ $resarticle = mysqli_query($connect, $article);
 <script>
     function del(id, articletitle) {
         if (confirm('您确认要删除标题为 ' + articletitle + ' 的文章吗')) {
-            location.href = 'dellitt.php?id=' + id + '&title' + articletitle;
+            location.href = 'littleDel.php?id=' + id + '&title' + articletitle;
         }
     }
 </script>

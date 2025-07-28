@@ -15,7 +15,7 @@ $mod = mysqli_fetch_array($resarticle);
             <div class="card-body">
                 <h4 class="header-title mb-3 size_18">修改文章—— <?php echo $mod['articletitle'] ?></h4>
 
-                <form class="needs-validation" action="littleupda.php" method="post" onsubmit="return check()"
+                <form class="needs-validation" action="littleUpdaPost.php" method="post" onsubmit="return check()"
                       novalidate>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">标题</label>

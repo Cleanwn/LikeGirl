@@ -6,13 +6,11 @@ $file = $_SERVER['PHP_SELF'];
 
 if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
     $id = $_GET['id'];
-    $text = $_GET['text'];
-    $QQ = $_GET['QQ'];
     if (is_numeric($id)) {
-        $sql = "delete from leaving where id = $id";
+        $sql = "delete from lovelist where id = $id";
         $result = mysqli_query($connect, $sql);
         if ($result) {
-            echo "<script>alert('删除内容成功');location.href = 'leavSet.php';</script>";
+            echo "<script>alert('删除事件成功');location.href = '/admin/lovelistSet.php';</script>";
         } else {
             echo "<script>alert('删除内容失败)';history.back();</script>";
         }
@@ -22,3 +20,4 @@ if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
 } else {
     echo "<script>alert('非法操作，行为已记录');location.href = 'warning.php?route=$file';</script>";
 }
+

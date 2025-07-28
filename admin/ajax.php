@@ -185,7 +185,7 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         var jiequ = $("input[name='jiequ']").val();
         var lanjiezf = $("textarea[name='lanjiezf']").val();
         $.ajax({
-            url: "leavPPost.php",
+            url: "leavingPPost.php",
             data: {
                 jiequ: jiequ,
                 lanjiezf: lanjiezf,
@@ -212,7 +212,7 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         var articletext = $("textarea[name='articletext']").val();
 
         $.ajax({
-            url: "littleupda.php",
+            url: "littleUpdaPost.php",
             data: {
                 articletitle: articletitle,
                 articletext: articletext,
@@ -273,7 +273,7 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         var imgUrl = $("input[name='imgUrl']").val();
 
         $.ajax({
-            url: "ImgUpdaPost.php",
+            url: "loveImgUpdaPost.php",
             data: {
                 imgDatd: imgDatd,
                 imgText: imgText,
@@ -304,7 +304,7 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         var imgUrl = $("input[name='imgUrl']").val();
 
         $.ajax({
-            url: "ImgAddPost.php",
+            url: "loveImgAddPost.php",
             data: {
                 imgDatd: imgDatd,
                 imgText: imgText,
@@ -355,7 +355,7 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
                     toastr["success"]("修改礼物成功！", "Like_Girl");
                     $('#giftUpdaPost').text('修改中...');
                     $("#giftUpdaPost").attr("disabled", "disabled");
-                    setInterval("window.location.href='giftsSet.php'", 1000);
+                    setInterval("window.location.href='giftSet.php'", 1000);
                 } else if (res == 0) {
                     toastr["error"]("修改礼物失败！", "Like_Girl");
                 }
@@ -390,7 +390,7 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
                     toastr["success"]("新增礼物成功！", "Like_Girl");
                     $('#giftAddPost').text('添加中...');
                     $("#giftAddPost").attr("disabled", "disabled");
-                    setInterval("window.location.href='giftsSet.php'", 1000);
+                    setInterval("window.location.href='giftSet.php'", 1000);
                 } else if (res == 0) {
                     toastr["error"]("新增礼物失败！", "Like_Girl");
                 }
@@ -406,7 +406,7 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         var img = $("input[name='img']").val();
 
         $.ajax({
-            url: "listaddPost.php",
+            url: "lovelistAddPost.php",
             data: {
                 eventname: eventname,
                 icon: icon,
@@ -419,7 +419,7 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
                     toastr["success"]("新增事件成功！", "Like_Girl");
                     $('#listaddPost').text('新增中...');
                     $("#listaddPost").attr("disabled", "disabled");
-                    setInterval("window.location.href='lovelist.php'", 1000);
+                    setInterval("window.location.href='lovelistSet.php'", 1000);
                 } else if (res == 0) {
                     toastr["error"]("新增事件失败！", "Like_Girl");
                 }
@@ -446,7 +446,7 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
                     toastr["success"]("IP封禁成功！", "Like_Girl");
                     $('#listupda').text('提交中...');
                     $("#listupda").attr("disabled", "disabled");
-                    setInterval("window.location.href='ipList.php'", 1000);
+                    setInterval("window.location.href='ipSet.php'", 1000);
                 } else if (res == 0) {
                     toastr["error"]("IP封禁失败！", "Like_Girl");
                 }
@@ -463,7 +463,7 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         var imgurl = $("input[name='imgurl']").val();
         var id = $("input[name='id']").val();
         $.ajax({
-            url: "listupda.php",
+            url: "lovelistUpdaPost.php",
             data: {
                 eventname: eventname,
                 icon: icon,
@@ -477,7 +477,7 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
                     toastr["success"]("修改事件成功！", "Like_Girl");
                     $('#listupda').text('修改中...');
                     $("#listupda").attr("disabled", "disabled");
-                    setInterval("window.location.href='lovelist.php'", 1000);
+                    setInterval("window.location.href='lovelistSet.php'", 1000);
                 } else if (res == 0) {
                     toastr["error"]("修改事件失败！", "Like_Girl");
                 }

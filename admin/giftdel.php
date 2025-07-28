@@ -8,7 +8,7 @@ if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
         $sql = "delete from gifts where id = $id";
         $result = mysqli_query($connect, $sql);
         if ($result) {
-            echo "<script>alert('删除礼物成功');location.href = 'giftsSet.php';</script>";
+            echo "<script>alert('删除礼物成功');location.href = 'giftSet.php';</script>";
         } else {
             echo "<script>alert('删除礼物失败');history.back();</script>";
         }

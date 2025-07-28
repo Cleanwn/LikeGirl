@@ -1,13 +1,17 @@
 <?php
-session_start();
-
-include_once 'Nav.php';
-$liuyan = "select * from leaving order by id desc limit 0,6";
-$resliuyan = mysqli_query($connect, $liuyan);
-
+    session_start();
+    
+    include_once 'Nav.php';
+    $liuyan = "select * from leaving order by id desc limit 0,6";
+    $resliuyan = mysqli_query($connect, $liuyan);
 ?>
 
-
+<div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>温馨提醒 - </strong> 当前版本为二次分发开源版，原作者已不再维护。
+</div>
 
 <div class="row">
     <div class="col-md-6 col-xl-4">
@@ -154,20 +158,6 @@ $resliuyan = mysqli_query($connect, $liuyan);
         </div>
     </div>
 </div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let isModalShown = localStorage.getItem("modalShown");
-        let myButton = document.getElementById("myButton");
-
-        if (!isModalShown) {
-            myButton.click();
-            localStorage.setItem("modalShown", true);
-        }
-
-    });
-
-</script>
 
 <?php
 include_once 'Footer.php';

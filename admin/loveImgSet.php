@@ -46,7 +46,7 @@ $resImg = mysqli_query($connect, $loveImg);
                             <td><?php echo $list['imgText'] ?></td>
                             <td><?php echo $list['imgDatd'] ?></td>
                             <td>
-                                <a href="modImg.php?id=<?php echo $list['id'] ?>">
+                                <a href="loveImgMod.php?id=<?php echo $list['id'] ?>">
                                     <button type="button" class="btn btn-secondary btn-rounded">
                                         <i class=" mdi mdi-clipboard-text-play-outline mr-1"></i>修改
                                     </button>
@@ -72,7 +72,7 @@ $resImg = mysqli_query($connect, $loveImg);
 <script>
     function del(id, imgText) {
         if (confirm('您确认要删除描述为 ' + imgText + ' 的相册图片吗')) {
-            location.href = 'delImg.php?id=' + id + '&imgText' + imgText;
+            location.href = 'loveImgDel.php?id=' + id + '&imgText' + imgText;
         }
     }
 

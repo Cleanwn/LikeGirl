@@ -4,13 +4,13 @@ include_once 'Nav.php';
 $inv_date = date("Y-m-d");
 ?>
 
-<link rel="stylesheet" href="/admin/assets/css/wg.photo.select.css">
+<link rel="stylesheet" href="/admin/assets/css/photo.select.css">
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
                 <h4 class="header-title mb-3 size_18">新增图片</h4>
-                <form class="needs-validation" action="ImgAddPost.php" method="post" onsubmit="return check()"
+                <form class="needs-validation" action="loveImgAddPost.php" method="post" onsubmit="return check()"
                       novalidate>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">日期</label>
@@ -107,8 +107,8 @@ $inv_date = date("Y-m-d");
   </div>
 </div>
 
-<script src="/admin/assets/js/wg.photo.upload.js"></script>
-<script src="/admin/assets/js/wg.photo.list.js"></script>
+<script src="/admin/assets/js/photo.upload.js"></script>
+<script src="/admin/assets/js/photo.list.js"></script>
 
 <script>
 function check() {

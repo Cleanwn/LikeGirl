@@ -15,7 +15,7 @@ $Setinfo = mysqli_fetch_array($Set);
             <div class="card-body">
                 <h4 class="header-title mb-3">前端留言页配置</h4>
 
-                <form class="needs-validation" action="leavPPost.php" method="post" novalidate>
+                <form class="needs-validation" action="leavingPPost.php" method="post" novalidate>
                     <div class="form-group mb-3">
                         <label for="validationCustom05">显示最新N条留言
                             <span class="badge badge-danger-lighten"> 请填纯数字 截取数量太多会影响加载速度</span></label>

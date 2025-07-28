@@ -71,7 +71,7 @@
                     <div class="card-body p-4">
 
                         <div class="text-center w-75 m-auto">
-                            <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Like_Girl 5.2.0</h4>
+                            <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Like_Girl</h4>
                             <p class="text-muted mb-4">愿得一人心 白首不相离</p>
                         </div>
 

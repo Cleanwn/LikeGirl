@@ -220,7 +220,7 @@
                     </li>
 
                     <li class="side-nav-item">
-                        <a href="/admin/leavSet.php" class="side-nav-link">
+                        <a href="/admin/leavingSet.php" class="side-nav-link">
                             <i class="dripicons-view-apps"></i>
                             <span> 留言管理
                                 <span class="badge badge-danger float-right"><?php echo $shu ?></span>
@@ -247,7 +247,7 @@
                     </li>
 
                     <li class="side-nav-item">
-                        <a href="/admin/lovelist.php" class="side-nav-link">
+                        <a href="/admin/lovelistSet.php" class="side-nav-link">
                             <i class="dripicons-location"></i>
                             <span> 恋爱清单
                                 <span class="badge badge-danger float-right"><?php echo $listnub ?></span>
@@ -256,7 +256,7 @@
                     </li>
                     
                     <li class="side-nav-item">
-                        <a href="/admin/giftsSet.php" class="side-nav-link">
+                        <a href="/admin/giftSet.php" class="side-nav-link">
                             <i class="dripicons-heart"></i>
                             <span> 礼物管理
                                 <span class="badge badge-danger float-right"><?php echo $giftnub ?></span>
@@ -281,7 +281,7 @@
                     </li>
 
                     <li class="side-nav-item">
-                        <a href="/admin/ipList.php" class="side-nav-link">
+                        <a href="/admin/ipSet.php" class="side-nav-link">
                             <i class="dripicons-location"></i>
                             <span> IP/拉黑</span>
                             <span class="menu-arrow"></span>
