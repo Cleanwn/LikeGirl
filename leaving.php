@@ -92,7 +92,7 @@ include_once 'head.php';
                     return false
                 }
                 $.ajax({
-                    url: "https://api.mmp.cc/api/qqname?qq=" + QQ,
+                    url: "https://api.cenguigui.cn/api/qq/name.php?qq=" + QQ,
                     type: "GET",
                     timeout: 5000,
                     dataType: "json",
