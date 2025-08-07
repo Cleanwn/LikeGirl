@@ -220,6 +220,13 @@ if ($diy['Pjaxkg'] == "1"):?>
                 </div>
             </div>
         </div>
+        
+        <!-- 向下滑动提示 -->
+        <div class="bottom-hint">
+            <div class="hint-text">向下滑动</div>
+            <div class="hint-arrow">↓</div>
+        </div>
+        
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
             <defs>

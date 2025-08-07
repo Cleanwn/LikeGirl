@@ -258,6 +258,39 @@ a:hover {
   animation-duration: 20s;
 }
 
+/* 底部提示 */
+.bottom-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    opacity: 0.5;
+    animation: floatHint 2s infinite;
+}
+
+.hint-text {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+}
+
+.hint-arrow {
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes floatHint {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
 @keyframes move-forever {
   0% {
     transform: translate3d(-90px, 0, 0);
