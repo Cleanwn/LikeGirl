@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `diyset` (
 --
 
 INSERT INTO `diyset` (`id`, `Blurkg`, `Pjaxkg`, `musickg`, `live2dkg`, `headCon`, `cssCon`, `footerCon`) VALUES
-(1, '2', '2', '2', '2', '', '', '');
+(1, '1', '2', '2', '2', '', '', '');
 
 -- --------------------------------------------------------
 

@@ -35,37 +35,37 @@ $config = mysqli_fetch_array($query);
                     <div class="form-group mb-3">
                         <label for="validationCustom01">本地-存储路径</label>
                         <input name="localpath" type="text" class="form-control" id="validationCustom01"
-                               placeholder="photos" value="<?php echo $config['localpath']?>" required>
+                               placeholder="files" value="<?php echo $config['localpath']?>" required>
                     </div>
 
                     <div class="form-group mb-3">
                         <label for="validationCustom01">七牛云-accessKey</label>
                         <input name="accessKey" type="password" class="form-control" id="validationCustom02"
-                               placeholder="1x|1bJ...CDr1Ob5" value="<?php echo $config['accessKey']?>"  required autocomplete="off">
+                               placeholder="" value="<?php echo $config['accessKey']?>"  required autocomplete="off">
                     </div>
                     
                     <div class="form-group mb-3">
                         <label for="validationCustom01">七牛云-secretKey</label>
                         <input name="secretKey" type="password" class="form-control" id="validationCustom03"
-                               placeholder="1x|1bJ...CDr1Ob5" value="<?php echo $config['secretKey']?>"  required autocomplete="off">
+                               placeholder="" value="<?php echo $config['secretKey']?>"  required autocomplete="off">
                     </div>
                     
                     <div class="form-group mb-3">
                         <label for="validationCustom01">七牛云-域名</label>
                         <input name="api" type="text" class="form-control" id="validationCustom04"
-                               placeholder="https://xxx.com/api/v1" value="<?php echo $config['api']?>" required>
+                               placeholder="" value="<?php echo $config['api']?>" required>
                     </div>
                                
                     <div class="form-group mb-3">
                         <label for="validationCustom01">七牛云-bucket</label>
                         <input name="name" type="text" class="form-control" id="validationCustom05"
-                               placeholder="bucket" value="<?php echo $config['name']?>" required>
+                               placeholder="" value="<?php echo $config['name']?>" required>
                     </div>
                     
                     <div class="form-group mb-3">
                         <label for="validationCustom01">图床-相册ID<span class="margin_left badge badge-success-lighten">（可选）</span></label>
                         <input name="albumId" type="text" class="form-control" id="validationCustom06"
-                               placeholder="1xx" value="<?php echo $config['album_id']?>">
+                               placeholder="" value="<?php echo $config['album_id']?>">
                     </div>
                     
                     <div class="form-group mb-3 text_right">
