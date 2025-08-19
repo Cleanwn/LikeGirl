@@ -31,6 +31,7 @@
 - 请认真填写安全码 尽量设置的`复杂难以猜测` 修改密码等敏感信息需输入安全码
 
 tips
+- PHP版本7.*, mysql版本>=5.6
 - 数据库的SQL文件位于`admin/install/likegirl.sql`
 - 默认boy账号密码：`admin1`/`123456`
 - 默认girl账号密码：`admin2`/`123456`
