@@ -61,7 +61,6 @@
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="card">
-
                     <!-- Logo -->
                     <div class="card-header pt-4 pb-4 text-center bg-primary">
                         <a href="##">
@@ -70,7 +69,6 @@
                     </div>
 
                     <div class="card-body p-4">
-
                         <form method="post" action="install.php">
                             <div class="form-group mb-3">
                                 <label>数据库地址</label>
@@ -101,14 +99,11 @@
                                 <button type="submit" class="btn btn-primary">保存配置</button>
                             </div>
                         </form>
-
                     </div> <!-- end card-body -->
                 </div>
                 <!-- end card -->
-
             </div>
             <!-- end row -->
-
         </div> <!-- end col -->
     </div>
     <!-- end row -->
