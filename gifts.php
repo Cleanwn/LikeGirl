@@ -20,7 +20,7 @@ $resImg = mysqli_query($connect, $giftImg);
             <?php
             while ($list = mysqli_fetch_array($resImg)) {
                 ?>
-                <idv
+                <div
                     class="img_card col-lg-4 col-md-6 col-sm-12 col-sm-x-12 <?php if ($text['Animation'] == "1") { ?>animated zoomIn delay-03s<?php } ?>">
                     <div class="love_img">
                         <img data-funlazy="<?php echo $list['imgUrl'] ?>" alt="<?php echo $list['gift_description'] ?>"
@@ -33,7 +33,7 @@ $resImg = mysqli_query($connect, $giftImg);
                         </div>
 
                     </div>
-                </idv>
+                </div>
                 <?php
             }
             ?>
