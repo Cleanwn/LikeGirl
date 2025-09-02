@@ -44,7 +44,7 @@ include_once 'Nav.php';
                     <div class="form-group mb-3" id="img_url">
                         <label for="validationCustom01">图片URL</label>
                         <div class="d-flex align-items-center">
-                            <input class="form-control flex-fill mr-2" type="text" name="img" placeholder="请输入图片URL地址" value="" required>
+                            <input class="form-control flex-fill mr-2" type="text" name="imgUrl" placeholder="请输入图片URL地址" value="" required>
                             <div class="btn-group" style="width: 220px; display: flex; gap: 10px;">
                                 <button class="btn btn-outline-success rounded-8" type="button" data-toggle="modal" data-target="#uploadModal">
                                     <i class="fa fa-upload"></i> 上传

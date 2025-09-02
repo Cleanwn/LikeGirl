@@ -111,18 +111,24 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
     $("#loveadminPost").click(function () {
         var boy = $("input[name='boy']").val();
         var girl = $("input[name='girl']").val();
+        var boyQQ = $("input[name='boyQQ']").val();
+        var girlQQ = $("input[name='girlQQ']").val();
+        var startTime = $("input[name='startTime']").val();
+        var customavatar = $("input[name='customavatar']").val();
         var boyimg = $("input[name='boyimg']").val();
         var girlimg = $("input[name='girlimg']").val();
-        var startTime = $("input[name='startTime']").val();
 
         $.ajax({
             url: "loveadminPost.php",
             data: {
                 boy: boy,
                 girl: girl,
+                boyQQ: boyQQ,
+                girlQQ: girlQQ,
+                startTime: startTime,
+                customavatar: customavatar,
                 boyimg: boyimg,
                 girlimg: girlimg,
-                startTime: startTime,
             },
             type: "POST",
             dataType: "text",
@@ -403,14 +409,14 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
     $("#listaddPost").click(function () {
         var eventname = $("input[name='eventname']").val();
         var icon = $("input[name='icon']").val();
-        var img = $("input[name='img']").val();
+        var imgUrl = $("input[name='imgUrl']").val();
 
         $.ajax({
             url: "lovelistAddPost.php",
             data: {
                 eventname: eventname,
                 icon: icon,
-                img: img,
+                imgUrl: imgUrl,
             },
             type: "POST",
             dataType: "text",
@@ -460,14 +466,14 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
     $("#listupda").click(function () {
         var eventname = $("input[name='eventname']").val();
         var icon = $("input[name='icon']").val();
-        var imgurl = $("input[name='imgurl']").val();
+        var imgUrl = $("input[name='imgUrl']").val();
         var id = $("input[name='id']").val();
         $.ajax({
             url: "lovelistUpdaPost.php",
             data: {
                 eventname: eventname,
                 icon: icon,
-                imgurl: imgurl,
+                imgUrl: imgUrl,
                 id: id,
             },
             type: "POST",

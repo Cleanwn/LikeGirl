@@ -16,12 +16,15 @@ include_once 'connect.php';
 if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
     $boy = htmlspecialchars(trim($_POST['boy']));
     $girl = htmlspecialchars(trim($_POST['girl']));
-    $boyimg = htmlspecialchars(trim($_POST['boyimg']), ENT_QUOTES);
-    $girlimg = htmlspecialchars(trim($_POST['girlimg']), ENT_QUOTES);
+    $boyQQ = htmlspecialchars(trim($_POST['boyQQ']), ENT_QUOTES);
+    $girlQQ = htmlspecialchars(trim($_POST['girlQQ']), ENT_QUOTES);
     $startTime = trim($_POST['startTime']);
+    $customavatar = trim($_POST['customavatar']);
+    $boyimg = htmlspecialchars(trim($_POST['boyimg']));
+    $girlimg = htmlspecialchars(trim($_POST['girlimg']));
     
-    if (checkQQ($boyimg) && checkQQ($girlimg)) {
-        $sql = "update text set startTime = '$startTime', girlimg = '$girlimg' , boyimg = '$boyimg', girl = '$girl' , boy = '$boy' ";
+    if (checkQQ($boyQQ) && checkQQ($girlQQ)) {
+        $sql = "update text set startTime = '$startTime', girlQQ = '$girlQQ' , boyQQ = '$boyQQ', girl = '$girl' , boy = '$boy', customavatar = '$customavatar', boyimg = '$boyimg', girlimg = '$girlimg' ";
         $result = mysqli_query($connect, $sql);
         if ($result) {
             echo "1";

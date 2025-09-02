@@ -77,12 +77,12 @@
         
                             <div class="form-group mb-3">
                                 <label>数据库用户名</label>
-                                <input type="text" name="db_username" class="form-control" required>
+                                <input type="text" name="db_username" class="form-control" value="likegirl" required>
                             </div>
                             
                             <div class="form-group mb-3">
                                 <label>数据库名称</label>
-                                <input type="text" name="db_name" class="form-control" required>
+                                <input type="text" name="db_name" class="form-control" value="likegirl" required>
                             </div>
         
                             <div class="form-group mb-3">

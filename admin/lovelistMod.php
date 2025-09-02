@@ -4,7 +4,7 @@ include_once 'Nav.php';
 $id = $_GET['id'];
 $icon = $_GET['icon'];
 $name = $_GET['name'];
-$imgurl = $_GET['imgurl'];
+$imgUrl = $_GET['imgurl'];
 
 ?>
 
@@ -24,16 +24,16 @@ $imgurl = $_GET['imgurl'];
                     <script>
                         function myOnClickHandler(obj) {
                             var input = document.getElementById("switch3");
-                            var imgurl = document.getElementById("img_url")
+                            var imgUrl = document.getElementById("img_url")
                             console.log(input);
                             if (obj.checked) {
                                 console.log("打开");
                                 input.setAttribute("value", "1");
-                                imgurl.style.display = "block";
+                                imgUrl.style.display = "block";
                             } else {
                                 console.log("关闭");
                                 input.setAttribute("value", "0");
-                                imgurl.style.display = "none";
+                                imgUrl.style.display = "none";
                             }
                         }
                     </script>
@@ -48,7 +48,7 @@ $imgurl = $_GET['imgurl'];
                          style="display: <?php if ($icon) { ?> block<?php } else { ?>none<?php } ?>">
                         <label for="validationCustom01">图片URL</label>
                         <div class="d-flex align-items-center">
-                            <input class="form-control flex-fill mr-2" type="text" id="validationCustom01" name="imgurl" placeholder="请输入图片地址（没有无需填写）" value="<?php echo $imgurl ?>">
+                            <input class="form-control flex-fill mr-2" type="text" id="validationCustom01" name="imgUrl" placeholder="请输入图片地址（没有无需填写）" value="<?php echo $imgUrl ?>">
                             <div class="btn-group" style="width: 220px; display: flex; gap: 10px;">
                                 <button class="btn btn-outline-success rounded-8" type="button" data-toggle="modal" data-target="#uploadModal">
                                     <i class="fa fa-upload"></i> 上传

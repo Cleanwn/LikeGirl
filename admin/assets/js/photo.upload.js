@@ -1,15 +1,11 @@
 function imgUrlChange(url){
-    const inputNames = ['imgUrl', 'img', 'imgurl'];
-    
-    // 此处源于原作者定义不规范
-    for (let name of inputNames) {
-        let inputElement = document.querySelector(`input[name="${name}"]`);
-        if (inputElement) {
-            try{
-                 inputElement.value = url;
-                 return; 
-            }catch (error) {}
-        }
+    const name = ImageController.targetInputName || 'imgUrl';
+    let inputElement = document.querySelector(`input[name="${name}"]`);
+    if (inputElement) {
+        try{
+                inputElement.value = url;
+                return; 
+        }catch (error) {}
     }
 }
 

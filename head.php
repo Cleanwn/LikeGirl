@@ -208,14 +208,22 @@ if ($diy['Pjaxkg'] == "1"):?>
             <div
                 class="middle <?php if ($text['Animation'] == "1") { ?>animated fadeInDown<?php } ?> <?php if ($diy['Blurkg'] == "2") { ?>Blurkg<?php } ?>">
                 <div class="img-male">
-                    <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $text['boyimg'] ?>&s=640" draggable="false">
+                    <?php if ($text['customavatar'] == "1"): ?>
+                        <img src="<?php echo $text['boyimg'] ?: ''; ?>" draggable="false">
+                    <?php else: ?>
+                        <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $text['boyQQ'] ?>&s=640" draggable="false">
+                    <?php endif; ?>
                     <span><?php echo $text['boy'] ?></span>
                 </div>
                 <div class="love-icon">
                     <img src="Style/img/like.svg" draggable="false">
                 </div>
                 <div class="img-female">
-                    <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $text['girlimg'] ?>&s=640" draggable="false">
+                    <?php if ($text['customavatar'] == "1"): ?>
+                        <img src="<?php echo $text['girlimg'] ?: ''; ?>" draggable="false">
+                    <?php else: ?>
+                        <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $text['girlQQ'] ?>&s=640" draggable="false">
+                    <?php endif; ?>
                     <span><?php echo $text['girl'] ?></span>
                 </div>
             </div>

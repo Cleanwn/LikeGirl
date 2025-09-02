@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: 2025-07-21 01:18:55
+-- Generation Time: 2025-09-03 03:03:05
 -- 服务器版本： 5.6.51-log
 -- PHP Version: 7.0.33
 
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   `articletime` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `articletitle` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `articlename` varchar(20) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `gifts` (
   `gift_price` decimal(10,2) NOT NULL COMMENT '礼物价格',
   `imgUrl` varchar(255) NOT NULL COMMENT '礼物图片URL',
   `gift_time` datetime DEFAULT NULL COMMENT '赠送时间'
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COMMENT='礼物墙';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='礼物墙';
 
 -- --------------------------------------------------------
 
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `leaving` (
   `time` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `ip` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ip记录',
   `city` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '省/城市'
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -198,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `loveimg` (
   `imgDatd` varchar(100) NOT NULL COMMENT '日期',
   `imgText` varchar(200) NOT NULL COMMENT '描述',
   `imgUrl` varchar(200) NOT NULL COMMENT '外链'
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -211,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `lovelist` (
   `icon` int(1) NOT NULL COMMENT '是否完成',
   `eventname` varchar(200) CHARACTER SET utf8mb4 NOT NULL COMMENT '事件内容',
   `imgurl` varchar(300) COLLATE utf8_unicode_ci NOT NULL COMMENT '图片地址'
-) ENGINE=MyISAM AUTO_INCREMENT=86 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -228,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `picset` (
   `album_id` int(11) NOT NULL,
   `type` varchar(10) NOT NULL,
   `localpath` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `picset`
@@ -248,7 +248,7 @@ CREATE TABLE IF NOT EXISTS `picture` (
   `name` varchar(100) NOT NULL COMMENT '日期',
   `url` varchar(200) NOT NULL COMMENT '描述',
   `date` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -263,8 +263,11 @@ CREATE TABLE IF NOT EXISTS `text` (
   `title` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '网站标题',
   `logo` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '网站logo',
   `writing` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '网站文案',
-  `boyimg` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '男QQ',
-  `girlimg` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '女QQ',
+  `boyQQ` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '男生QQ',
+  `girlQQ` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '女生QQ',
+  `customavatar` int(1) NOT NULL,
+  `boyimg` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT '男生QQ头像',
+  `girlimg` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT '女生QQ头像',
   `startTime` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '开始时间',
   `icp` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '网站备案号',
   `Copyright` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '网站版权',
@@ -284,8 +287,8 @@ CREATE TABLE IF NOT EXISTS `text` (
 -- 转存表中的数据 `text`
 --
 
-INSERT INTO `text` (`id`, `boy`, `girl`, `title`, `logo`, `writing`, `boyimg`, `girlimg`, `startTime`, `icp`, `Copyright`, `card1`, `card2`, `card3`, `deci1`, `deci2`, `deci3`, `bgimg`, `userQQ`, `userName`, `Animation`) VALUES
-(1, 'boy', 'girl', 'Like_Girl', 'LikeGirl', '喜欢花 喜欢浪漫', '123456', '654321', '2020-01-01T00:00', '', 'Copyright © 2022 - 2025 Like_Girl All Rights Reserved.', '点点滴滴', '留言板', '关于我们', '有人愿意听你碎碎念念也很浪漫', '在这里写下我们的留言祝福', '我们之间认识的经历回忆', '', '123456', 'boy', 1);
+INSERT INTO `text` (`id`, `boy`, `girl`, `title`, `logo`, `writing`, `boyQQ`, `girlQQ`, `customavatar`, `boyimg`, `girlimg`, `startTime`, `icp`, `Copyright`, `card1`, `card2`, `card3`, `deci1`, `deci2`, `deci3`, `bgimg`, `userQQ`, `userName`, `Animation`) VALUES
+(1, 'boy', 'girl', 'Like_Girl', 'LikeGirl', '喜欢花 喜欢浪漫', '123456', '654321', 0, '', '', '2020-01-01T00:00', '', 'Copyright © 2022 - 2025 Like_Girl All Rights Reserved.', '点点滴滴', '留言板', '关于我们', '有人愿意听你碎碎念念也很浪漫', '在这里写下我们的留言祝福', '我们之间认识的经历回忆', '', '123456', 'boy', 1);
 
 -- --------------------------------------------------------
 
@@ -391,7 +394,7 @@ ALTER TABLE `warning`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `diyset`
 --
@@ -401,7 +404,7 @@ ALTER TABLE `diyset`
 -- AUTO_INCREMENT for table `gifts`
 --
 ALTER TABLE `gifts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `iperror`
 --
@@ -411,7 +414,7 @@ ALTER TABLE `iperror`
 -- AUTO_INCREMENT for table `leaving`
 --
 ALTER TABLE `leaving`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `leavset`
 --
@@ -426,12 +429,12 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `loveimg`
 --
 ALTER TABLE `loveimg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `lovelist`
 --
 ALTER TABLE `lovelist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=86;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `picset`
 --
@@ -441,7 +444,7 @@ ALTER TABLE `picset`
 -- AUTO_INCREMENT for table `picture`
 --
 ALTER TABLE `picture`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `text`
 --

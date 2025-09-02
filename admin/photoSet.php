@@ -26,7 +26,7 @@ $config = mysqli_fetch_array($query);
                             };
                         </script>
                         <label for="validationCustom01">上传方式</label>
-                        <input type="checkbox" name="type" id="switch3" value="1" data-switch="success"
+                        <input type="checkbox" name="type" id="switch3" value="0" data-switch="success"
                                onclick="myOnClickHandler(this)" checked>
                         <label id="switchurl" style="display:block;" for="switch3" data-on-label="图床"
                                data-off-label="本地"></label>

@@ -4,13 +4,13 @@ session_start();
 $name = htmlspecialchars(trim($_POST['eventname']),ENT_QUOTES);
 $icon = $_POST['icon'];
 $id = $_POST['id'];
-$img = htmlspecialchars($_POST['imgurl'],ENT_QUOTES);
+$imgUrl = htmlspecialchars($_POST['imgUrl'],ENT_QUOTES);
 $file = $_SERVER['PHP_SELF'];
 include_once 'connect.php';
-if (!empty($img)) {
-    $img = htmlspecialchars($_POST['imgurl'],ENT_QUOTES);
+if (!empty($imgUrl)) {
+    $imgUrl = htmlspecialchars($_POST['imgUrl'],ENT_QUOTES);
 } else {
-    $img = 0;
+    $imgUrl = 0;
 }
 if (!$icon) {
     $icon = 0;
@@ -19,7 +19,7 @@ if (!$icon) {
 }
 
 if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
-    $sql = "update lovelist set eventname = '$name',icon ='$icon',imgurl ='$img' where id ='$id' ";
+    $sql = "update lovelist set eventname = '$name',icon ='$icon',imgurl ='$imgUrl' where id ='$id' ";
     $reslove = mysqli_query($connect, $sql);
     if ($reslove) {
         echo "1";

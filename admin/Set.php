@@ -2,6 +2,8 @@
 session_start();
 include_once 'Nav.php';
 ?>
+
+<link rel="stylesheet" href="/admin/assets/css/photo.select.css">
 <div class="row">
     <div class="col-lg-6">
         <div class="card">
@@ -78,25 +80,80 @@ include_once 'Nav.php';
                         <label for="validationCustom02">女主Name</label>
                         <input type="text" class="form-control" placeholder="请输入女主Name"
                                name="girl" value="<?php echo $text['girl'] ?>" required>
-
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom03">男主QQ</label>
                         <input type="text" class="form-control"  placeholder="请输入男主QQ（用于显示头像）"
-                               name="boyimg" value="<?php echo $text['boyimg'] ?>" required>
-
+                               name="boyQQ" value="<?php echo $text['boyQQ'] ?>" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom04">女主QQ</label>
                         <input type="text" class="form-control"  placeholder="请输入女主QQ（用于显示头像）"
-                               name="girlimg" value="<?php echo $text['girlimg'] ?>" required>
-
+                               name="girlQQ" value="<?php echo $text['girlQQ'] ?>" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom05">起始时间</label>
                         <input type="datetime-local" class="form-control"  placeholder="请输入起始时间"
                                name="startTime" value="<?php echo $text['startTime'] ?>" required>
                     </div>
+                    
+                    <div class="form-group mb-3">
+                        <script>
+                            function myOnClickHandler(obj) {
+                                var input = document.getElementById("switch3");
+                                var boyavatarurl = document.getElementById("boy_avatar_url")
+                                var girlavatarurl = document.getElementById("girl_avatar_url")
+                                if (obj.checked) {
+                                    input.setAttribute("value", "1");
+                                    boyavatarurl.style.display = "block";
+                                    girlavatarurl.style.display = "block";
+                                } else {
+                                    input.setAttribute("value", "0");
+                                    boyavatarurl.style.display = "none";
+                                    girlavatarurl.style.display = "none";
+                                }
+                            }
+                            window.onload = function() {
+                                var checkbox = document.getElementById("switch3");
+                                checkbox.checked = <?php echo $text['customavatar']?>;
+                                myOnClickHandler(checkbox);
+                            };
+                        </script>
+                        <label for="validationCustom01">自定义头像</label>
+                        <input type="checkbox" name="customavatar" id="switch3" value="0" data-switch="success"
+                               onclick="myOnClickHandler(this)" checked>
+                        <label id="switchurl" style="display:block;" for="switch3" data-on-label="Yes"
+                               data-off-label="No"></label>
+                    </div>
+                    <div class="form-group mb-3" id="boy_avatar_url">
+                        <label for="validationCustom01">男生头像URL</label>
+                        <div class="d-flex align-items-center">
+                            <input class="form-control flex-fill mr-2" type="text" name="boyimg" placeholder="请输入图片URL地址" value="<?php echo $text['boyimg'] ?>" required>
+                            <div class="btn-group" style="width: 220px; display: flex; gap: 10px;">
+                                <button class="btn btn-outline-success rounded-8" type="button" data-toggle="modal" data-target="#uploadModal" onclick="ImageController.targetInputName='boyimg'">
+                                    <i class="fa fa-upload"></i> 上传
+                                </button>
+                                <button class="btn btn-outline-danger rounded-8" type="button" data-toggle="modal" data-target="#galleryModal" onclick="ImageController.targetInputName='boyimg'">
+                                    <i class="fa fa-images"></i> 图库
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3" id="girl_avatar_url">
+                        <label for="validationCustom01">女生头像URL</label>
+                        <div class="d-flex align-items-center">
+                            <input class="form-control flex-fill mr-2" type="text" name="girlimg" placeholder="请输入图片URL地址" value="<?php echo $text['girlimg'] ?>" required>
+                            <div class="btn-group" style="width: 220px; display: flex; gap: 10px;">
+                                <button class="btn btn-outline-success rounded-8" type="button" data-toggle="modal" data-target="#uploadModal" onclick="ImageController.targetInputName='girlimg'">
+                                    <i class="fa fa-upload"></i> 上传
+                                </button>
+                                <button class="btn btn-outline-danger rounded-8" type="button" data-toggle="modal" data-target="#galleryModal" onclick="ImageController.targetInputName='girlimg'">
+                                    <i class="fa fa-images"></i> 图库
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="form-group mb-3 text_right">
                         <button class="btn btn-primary" type="button" id="loveadminPost">提交修改</button>
                     </div>
@@ -132,7 +189,6 @@ include_once 'Nav.php';
                         <label for="validationCustom03">卡片2Name</label>
                         <input type="text" class="form-control"  placeholder="请输入卡片Name"
                                name="card2" value="<?php echo $text['card2'] ?>" required>
-
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom04">卡片2描述</label>
@@ -169,6 +225,73 @@ include_once 'Nav.php';
         </div> <!-- end card-->
     </div> <!-- end col-->
 </div>
+
+<!--上传图片-->
+<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="uploadModalLabel">图片上传</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body d-flex flex-column align-items-center">
+        <div class="upload-area d-flex flex-column align-items-center mb-3">
+          <div id="thumbnailContainer" class="relative">
+            <img src="" alt="图片缩略图" id="thumbnailImage" class="thumbnail-image" style="display: none; width: 150px; height: 150px; object-fit: cover; border-radius: 10px; position: relative; z-index: 1;">
+            <div class="overlay d-flex flex-column align-items-center justify-content-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); border-radius: 10px; opacity: 0; transition: opacity 0.3s ease;">
+            </div>
+          </div>
+          <input id="fileName" type="text" class="text-center mt-2 no-border" placeholder="点击上传框选择文件" value="" required>
+          <span class="text-center mt-2">选择后建议重命名(保留后缀如.png/.jpg)，便于图库查找</span>
+        </div>
+        <button class="btn btn-primary"  type="submit" id="uploadImg">上传图片</button>
+      </div>
+    </div>
+  </div>
+</div>
+<input type="file" name="imageFile" id="imageFile" accept="image/*" required class="d-none">
+
+<!--图库选择-->
+<div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-labelledby="galleryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="galleryModalLabel">我的图库</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <nav class="navbar navbar-expand-lg navbar-custom-i">
+            <div class="container-fluid">
+                <div class="navbar-search d-flex align-items-center">
+                    <input type="text" class="form-control" placeholder="输入关键字..." id="keywords">
+                    <button class="btn btn-outline-success rounded-8" style="width: 50px" id="btn-search">
+                        <i class="fas fa-search"></i> 
+                    </button>
+                </div>
+    
+                <div class="navbar-function ms-auto d-flex align-items-center">
+                    <button class="btn btn-outline-success rounded-8" id="prevPage">
+                        <i class="fas fa-chevron-left"></i> 
+                    </button>
+                    <span class="mx-2"><span id="currentPage">0</span> / <span id="totalPages">0</span>, 共 <span id="totalCount">0</span></span>
+                    <button class="btn btn-outline-success rounded-8" id="nextPage">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div class="row" id="imageContainer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/admin/assets/js/photo.upload.js"></script>
+<script src="/admin/assets/js/photo.list.js"></script>
 
 <?php
 include_once 'Footer.php';

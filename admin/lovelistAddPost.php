@@ -3,10 +3,10 @@ session_start();
 
 $name = htmlspecialchars(trim($_POST['eventname']),ENT_QUOTES);
 $file = $_SERVER['PHP_SELF'];
-if ($_POST['img'] === 0) {
-    $img = 0;
+if ($_POST['imgUrl'] === 0) {
+    $imgUrl = 0;
 } else {
-    $img = htmlspecialchars($_POST['img'],ENT_QUOTES);
+    $imgUrl = htmlspecialchars($_POST['imgUrl'],ENT_QUOTES);
 }
 if ($_POST['icon'] == 1) {
     $icon = 1;
@@ -17,7 +17,7 @@ if ($_POST['icon'] == 1) {
 include_once 'connect.php';
 
 if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
-    $charu = "insert into lovelist (eventname,icon,imgurl) values ('$name','$icon','$img')";
+    $charu = "insert into lovelist (eventname,icon,imgurl) values ('$name','$icon','$imgUrl')";
     $result = mysqli_query($connect, $charu);
     if ($result) {
         echo "1";
