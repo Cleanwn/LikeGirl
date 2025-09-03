@@ -288,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `text` (
 --
 
 INSERT INTO `text` (`id`, `boy`, `girl`, `title`, `logo`, `writing`, `boyQQ`, `girlQQ`, `customavatar`, `boyimg`, `girlimg`, `startTime`, `icp`, `Copyright`, `card1`, `card2`, `card3`, `deci1`, `deci2`, `deci3`, `bgimg`, `userQQ`, `userName`, `Animation`) VALUES
-(1, 'boy', 'girl', 'Like_Girl', 'LikeGirl', '喜欢花 喜欢浪漫', '123456', '654321', 0, '', '', '2020-01-01T00:00', '', 'Copyright © 2022 - 2025 Like_Girl All Rights Reserved.', '点点滴滴', '留言板', '关于我们', '有人愿意听你碎碎念念也很浪漫', '在这里写下我们的留言祝福', '我们之间认识的经历回忆', '', '123456', 'boy', 1);
+(1, 'boy', 'girl', 'Like_Girl', 'LikeGirl', '喜欢花 喜欢浪漫', '123456', '654321', 0, '', '', '2020-01-01T00:00', '', 'Copyright © 2022 - 2025 Like_Girl All Rights Reserved.', '点点滴滴', '留言板', '关于我们', '有人愿意听你碎碎念念也很浪漫', '在这里写下我们的留言祝福', '我们之间认识的经历回忆', 'Style/img/bgCover.png', '123456', 'boy', 1);
 
 -- --------------------------------------------------------
 

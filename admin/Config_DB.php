@@ -24,7 +24,7 @@ $db_address = "localhost";
 $db_username = "likegirl";
 
 // 数据库密码
-$db_password = "w6MmX73Ya2srRW7z";
+$db_password = "123456";
 
 // 数据库表名 （默认与数据库用户名相同）
 $db_name = "likegirl";
