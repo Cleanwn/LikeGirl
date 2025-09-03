@@ -276,3 +276,17 @@ textarea {
     top: 6rem;
     right: 1rem;
 }
+
+.header-wrap .header{
+    width: calc(100% - 4rem);
+    padding: 0 2rem;
+}
+
+.img_card span{
+    font-size: 1.25rem !important;
+}
+
+.card-wrap .card-b{
+    width:100% !important;
+    box-sizing:border-box;
+}

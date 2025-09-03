@@ -48,17 +48,23 @@ include_once 'head.php';
                         <div class="leavform <?php if ($Animation == "1") { ?>animated fadeInUp delay-03s<?php } ?>">
                             <div class="textinfo">
                                 <div class="MsgTopInfo">
-                                    <i class="time">
+                                    <i class="time" data-tip="<?php echo $datetime = date('Y-m-d H:i:s', $time); ?>" data-tip-position="top">
                                         <?php echo time_tran($time) ?> <b class="yuan"></b>
                                         <?php echo $city ? $city : '未知'; ?>
                                     </i>
                                 </div>
-
-                                <div class="user_info">
+                                 <div class="user_info">
                                     <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $qq ?>&s=100">
-                                    <span class="name"><?php echo $name ?></span>
+                                    <div class="head_content">
+                                        <div class="level">
+                                            访客 <b>#<?php echo $id ?></b>
+                                        </div>
+                                        <span class="name"><?php echo $name ?></span>
+
+                                    </div>
                                 </div>
-                                <div class="text"><?php echo $text ?></div>
+                                
+                                <div class="text"><?php echo escapeXSS($text) ?></div>
                             </div>
                         </div>
                         <?php
@@ -92,8 +98,12 @@ include_once 'head.php';
                     return false
                 }
                 $.ajax({
-                    url: "https://jkapi.com/api/qqinfo?qq=" + QQ,
-                    type: "GET",
+                    url: "https://loveli.kikiw.cn/admin/infoService.php",
+                    type: "POST",
+                    data:{
+                        action:'qq',
+                        qq:QQ
+                    },
                     timeout: 5000,
                     dataType: "json",
                     statusCode: {
@@ -106,13 +116,13 @@ include_once 'head.php';
                         }
                     },
                     success: function (result) {
-                        if (result.code == 500) {
+                        if (!result.Status) {
                             removeLoading('test');
-                            toastr["warning"](result.msg, "Like_Girl");
-                        } else if (result.code == 200) {
+                            toastr["warning"](result.message, "Like_Girl");
+                        } else {
                             loadingname();
-                            $("#nickname").val(result.nick);
-                            $(".avatar").attr("src", result.avatar);
+                            $("#nickname").val(result.data.nick);
+                            $(".avatar").attr("src", result.data.avatar);
                             setTimeout(function () {
                                 removeLoading('test');
                                 toastr["success"]("获取昵称头像成功", "Like_Girl");
@@ -134,7 +144,7 @@ include_once 'head.php';
                     toastr["warning"]("请填写QQ号码！", "Like_Girl");
                     return false;
                 } else if (name.length == 0) {
-                    toastr["warning"]("请填写恁的昵称！", "Like_Girl");
+                    toastr["warning"]("请填写您的昵称！", "Like_Girl");
                     return false;
                 }
                 let qqlength = /^[0-9]{6,10}$/;
@@ -170,6 +180,7 @@ include_once 'head.php';
                     toastr["warning"]("表单信息不能为空 请先填写完整！", "Like_Girl");
                     return false
                 }
+                
                 $('#leavingPost').text('留言提交中...');
                 $("#leavingPost").attr("disabled", "disabled");
                 $.ajax({

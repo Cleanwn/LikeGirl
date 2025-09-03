@@ -2,13 +2,13 @@
 
 /*
  * @Page：自定义函数方法
- * @Version：Like Girl 5.2.0
+ * @Version：Like Girl 5.2.1-Stable
  * @Author: Ki.
- * @Date: 2024-11-08 10:00:00
- * @LastEditTime: 2024-11-08
- * @Description: 愿得一人心 白首不相离
+ * @Date: 2025-09-03 00:00:00
+ * @LastEditTime: 2025-09-03
+ * @Description: 愿得一心人 白头不相离
  * @Document：https://blog.kikiw.cn/index.php/archives/52/
- * @Copyright (c) 2024 by Ki All Rights Reserved. 
+ * @Copyright (c) 2023 - 2025 by Ki All Rights Reserved. 
  * @Warning：禁止以任何方式出售本项目 如有发现一切后果自行负责
  * @Warning：禁止以任何方式出售本项目 如有发现一切后果自行负责
  * @Warning：禁止以任何方式出售本项目 如有发现一切后果自行负责
@@ -34,10 +34,15 @@ function checkQQ($qq)
     }
 }
 
-function replaceSpecialChar($Symbol)
+function replaceSpecialChar($str)
 {
-    $Filter = "/\ |\/|\~|\!|\@|\-|\=|\#|\\$|\%|\^|\&|\:|\*|\"|\(|\)|\_|\+|\{|\}|\<|\>|\?|\[|\]|\,|\/|\;|\'|\`|\=|\\\|\||/";
-    return preg_replace($Filter, "", $Symbol);
+    $filter = "/[\\'\"\\\`;]/"; 
+    return preg_replace($filter, '', $str);
+}
+
+
+function escapeXSS($str) {
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
 
 function time_tran($time)

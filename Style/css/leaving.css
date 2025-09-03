@@ -56,6 +56,7 @@
     position: relative;
     box-shadow: 0 0 35px 0 rgb(172 178 185 / 22%);
     transition: all .2s;
+    box-sizing: border-box;
 }
 
 
@@ -80,8 +81,8 @@
 
 .central.bg .row .card .leavform .textinfo .MsgTopInfo {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: .5rem;
+    right: .5rem;
 }
 
 .central.bg .row .card .leavform .textinfo .text {
@@ -99,7 +100,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: 2px dashed #c7c7c7ee;
+    border-top: 1px solid #e8e8e8ee;
 }
 
 .central.bg .row .card .inputbox input {
@@ -189,6 +190,9 @@ input#QQ {
     text-transform: capitalize;
     color: #3f3f3f;
     font-weight: 700;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .central.bg .row .card .leavform .textinfo span.name.ipclass {
@@ -222,11 +226,13 @@ svg.leav_icon.sm22 {
     font-weight: 400;
     background: #eef3ff;
     color: #0052ff;
-    padding: 0.5rem 1.5rem;
-    border-radius: 10rem;
+    padding: 0.5rem 1rem;
+    border-radius: .5rem;
     display: flex;
     align-items: center;
-    border: 1px solid #90b4ff;
+    font-size: 0.8rem;
+    position: relative;
+    border: 1px solid #fff;
 }
 
 .central.bg .row .card .leavform .textinfo .time .yuan {
@@ -266,4 +272,28 @@ svg.leav_icon.sm22 {
     color: #fff;
     width:2rem !important;
     height:2rem !important;
+}
+
+.central.bg .row .card .leavform .textinfo .level {
+    display: inline-flex;
+    background: #9ca3af33;
+    padding: .4rem .6rem;
+    border-radius: .3rem;
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-family: 'Noto Serif SC', serif;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.central.bg .row .card .leavform .textinfo .level b{
+    font-weight: bold;
+    margin-left: .3rem;
+}
+
+
+.central.bg .row .card .leavform .head_content{
+    display: flex;
+    align-items: center;
+    width: 80%;
 }

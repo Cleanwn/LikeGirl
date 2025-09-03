@@ -1,12 +1,12 @@
 <!-- 
  * @Page：异步Ajax请求处理内容新增修改
- * @Version：Like Girl 5.2.0
+ * @Version：Like Girl 5.2.1-Stable
  * @Author: Ki.
- * @Date: 2024-11-08 10:00:00
- * @LastEditTime: 2024-11-08
- * @Description: 愿得一人心 白首不相离
+ * @Date: 2025-09-03 00:00:00
+ * @LastEditTime: 2025-09-03
+ * @Description: 愿得一心人 白头不相离
  * @Document：https://blog.kikiw.cn/index.php/archives/52/
- * @Copyright (c) 2024 by Ki All Rights Reserved. 
+ * @Copyright (c) 2023 - 2025 by Ki All Rights Reserved. 
  * @Warning：禁止以任何方式出售本项目 如有发现一切后果自行负责
  * @Warning：禁止以任何方式出售本项目 如有发现一切后果自行负责
  * @Warning：禁止以任何方式出售本项目 如有发现一切后果自行负责
@@ -481,6 +481,53 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         }
         )
     })
+    
+    
+    
+    function loadModalContent() {
+    $.getJSON('https://wiki.kikiw.cn/modalData.php', function(data) {
+        const $modal = $('#bs-example-modal-lg');
+
+        // 设置标题
+        $modal.find('.modal-title').text(data.title);
+
+        // 填充 body
+        const $body = $modal.find('.modal-body').empty();
+
+        data.body.forEach(item => {
+            if (typeof item === 'string') {
+                $body.append(`<p>${item}</p>`);
+            } else if (item.class) {
+                $body.append(`<p class="${item.class}">${item.text}</p>`);
+            }
+        });
+
+        // 版本列表
+        const $versionList = $('<ul></ul>');
+        data.versions.forEach(v => $versionList.append(`<li>${v}</li>`));
+        $body.append('<h4>版本更新信息</h4>');
+        $body.append($versionList);
+
+        // 网页端更新
+        const $webUpdate = $('<ul></ul>');
+        data.webUpdate.forEach(u => $webUpdate.append(`<li>${u}</li>`));
+        $body.append('<h4>网页端最新版本优化亮点</h4>');
+        $body.append($webUpdate);
+
+        // 小程序更新
+        const $wxUpdate = $('<ul></ul>');
+        data.wxAppUpdate.forEach(u => $wxUpdate.append(`<li>${u}</li>`));
+        $body.append('<h4>小程序最新版本优化亮点</h4>');
+        $body.append($wxUpdate);
+
+        // 图片
+        $body.append(`<img class="versionImage" src="${data.image}" alt="LGNewUi最新版本">`);
+
+        // footer 链接
+        $modal.find('#documentLink').attr('href', data.documentLink);
+    });
+}
+
     $(function () {
         toastr.options = {
             "closeButton": true,
@@ -500,7 +547,9 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         };
-
+        
+        loadModalContent();
+    
     })
 
 </script>

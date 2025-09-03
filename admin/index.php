@@ -124,7 +124,7 @@ include_once "LG_Info.php";
                                 <tr>
                                     <td>
                                         <div class="textHide index">
-                                            <?php echo $info['text'] ?>
+                                            <?php echo escapeXSS($info['text']) ?>
                                         </div>
                                     </td>
                                     <td>

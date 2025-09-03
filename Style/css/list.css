@@ -35,6 +35,7 @@
   width: 100%;
   box-sizing: border-box;
 }
+
 .row .card .list_texts .lovelist {
   transition: height 2s;
   width: 100%;
@@ -59,13 +60,18 @@
   color: #ddd;
 }
 .row .card .list_texts .com {
-  color: #19ffa0;
+  color: #2cdc87;
 }
 .row .card .list_texts span {
   font-size: 1.3rem;
   font-family: 'Noto Serif SC', serif;
   font-weight: 700;
 }
+
+.row .card .list_texts span.unfinished {
+    color: #aeaeae;
+}
+
 .open img{
   width: 100%;
   height: 100%;

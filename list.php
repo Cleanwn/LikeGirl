@@ -3,8 +3,6 @@ include_once 'head.php';
 $time = gmdate("Y-m-d", time() + 8 * 3600);
 $lovelist = "select * from lovelist order by id desc";
 $reslist = mysqli_query($connect, $lovelist);
-$row_count = mysqli_num_rows($reslist);
-$hideElement = ($row_count < 1);
 ?>
 
 <head>
@@ -20,7 +18,6 @@ $hideElement = ($row_count < 1);
             </div>
             <div class="row central central-800">
 
-                <?php if (!$hideElement): ?>
                 <div class="card col-lg-12 col-md-12 col-sm-12 col-sm-x-12">
                     <div
                         class="list_texts <?php if ($text['Animation'] == "1") { ?>animated fadeInUp delay-03s<?php } ?>">
@@ -31,7 +28,7 @@ $hideElement = ($row_count < 1);
                                 <li class="cike">
                                     <?php if ($list['icon']) { ?><i class="iconfont icon-chenggong2 com"></i> <?php } ?>
                                     <?php if (!$list['icon']) { ?><i class="iconfont icon-chenggong2 air"></i> <?php } ?>
-                                    <span><?php echo $list['eventname']; ?></span>
+                                    <span class="<?php echo $list['icon'] ? 'success':'unfinished' ?> "><?php echo $list['eventname']; ?></span>
                                     <?php if ($list['imgurl']) { ?>
                                         <svg class="icon" aria-hidden="true">
                                             <use xlink:href="#icon-tupian"></use>
@@ -50,7 +47,6 @@ $hideElement = ($row_count < 1);
                         </div>
                     </div>
                 </div>
-                <?php endif; ?>
             </div>
         </div>
         <style>

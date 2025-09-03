@@ -1,11 +1,11 @@
 <!--
- * @Version：Like Girl 5.2.0
+ * @Version：Like Girl 5.2.1-Stable
  * @Author: Ki.
- * @Date: 2024-11-08 10:00:00
- * @LastEditTime: 2024-11-08
- * @Description: 愿得一人心 白首不相离
+ * @Date: 2025-09-03 00:00:00
+ * @LastEditTime: 2025-09-03
+ * @Description: 愿得一心人 白头不相离
  * @Document：https://blog.kikiw.cn/index.php/archives/52/
- * @Copyright (c) 2024 by Ki All Rights Reserved. 
+ * @Copyright (c) 2023 - 2025 by Ki All Rights Reserved. 
  * @Warning：禁止以任何方式出售本项目 如有发现一切后果自行负责
  * @Warning：禁止以任何方式出售本项目 如有发现一切后果自行负责
  * @Warning：禁止以任何方式出售本项目 如有发现一切后果自行负责
@@ -22,7 +22,7 @@
     <meta charset="utf-8"/>
     <title>数据库连接失败</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Like Girl 5.2.0" name="description"/>
+    <meta content="Like Girl 5.2.1-Stable" name="description"/>
     <meta content="Coderthemes" name="author"/>
 
     <!-- App css -->
@@ -80,11 +80,11 @@
                     <div class="card-body p-4">
 
                         <div class="text-center w-75 m-auto">
-                            <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Like_Girl 5.2.0</h4>
+                            <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Like_Girl 5.2.1-Stable</h4>
                             <div class="info">请检查数据库信息是否配置正确<i style="color: #ff9b9b;"></i></div>
                         </div>
                         <div class="text-center w-75 m-auto" style="margin-bottom: 40px!important;">
-                            <img src="https://blog.kikiw.cn/usr/uploads/2025/03/108067819.png"
+                            <img src="https://img.gejiba.com/images/2bce316a4c0cb6754127769d614d4a82.png"
                                  style="width: 100%;border-radius: 10px;box-shadow: 0 5px 12px #b9c7dc;" alt="">
                         </div>
                         <div class="text-center info">配置成功后可到admin目录下删除当前页面<i style="color: #ff9b9b;"></i></div>

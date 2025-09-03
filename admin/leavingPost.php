@@ -8,10 +8,14 @@ $qq = trim($_POST['qq']);
 $text = trim($_POST['text']);
 $time = time();
 
+
 $Filter_Name = replaceSpecialChar($name);
 $Filter_QQ = replaceSpecialChar($qq);
 $Filter_Text = replaceSpecialChar($text);
 $Filter_Time = replaceSpecialChar($time);
+
+
+// echo $Filter_Name.$Filter_QQ.$Filter_Text;
 
 $file = $_SERVER['PHP_SELF'];
 
@@ -23,7 +27,7 @@ if (!$_COOKIE["KiCookie"]) {
 
             if (filter_var($Filter_IP, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
 
-                if (checkQQ($Filter_QQ)) {
+                if (checkQQ($qq)) {
 
                     $charu = "insert into leaving (name,QQ,text,time,ip,city) values (?,?,?,?,?,?)";
                     $stmt = $conn->prepare($charu);

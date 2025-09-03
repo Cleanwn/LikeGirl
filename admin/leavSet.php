@@ -63,6 +63,7 @@ if (!$result)
                             $SerialNumber = 0;
                             while ($stmt->fetch()) {
                                 $SerialNumber++;
+                            
                                 ?>
                                 <tr>
                                     <td>
@@ -72,7 +73,7 @@ if (!$result)
                                     </td>
                                     <td>
                                         <div class="textHide">
-                                            <?php echo $text ?>
+                                            <?php echo escapeXSS($text) ?>
                                         </div>
                                     </td>
                                     <td>
@@ -97,7 +98,7 @@ if (!$result)
                                         <i><?php echo $city ? $city : '未知'; ?></i>
                                     </td>
                                     <td>
-                                        <a href="javascript:del(<?php echo $id; ?>,'<?php echo $text; ?>');">
+                                        <a class="delete-btn" data-id="<?php echo $id ?>" data-content="<?= escapeXSS($text) ?>">
                                             <button style="white-space: nowrap;" type="button"
                                                 class="btn btn-danger btn-rounded">
                                                 <i class=" mdi mdi-delete-empty mr-1"></i>删除
@@ -125,6 +126,15 @@ if (!$result)
     }
 </style>
 <script>
+    document.querySelectorAll('.delete-btn').forEach(el => {
+        el.addEventListener('click', e => {
+            e.preventDefault();
+            let id = el.dataset.id;
+            let content = el.dataset.content;
+            del(id, content);
+        });
+    });
+
     function del(id, text) {
         if (confirm('您确认要删除 ' + text + ' 内容吗')) {
             location.href = 'delleav.php?id=' + id + '&text' + text;

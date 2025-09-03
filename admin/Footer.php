@@ -28,7 +28,7 @@ include_once 'ajax.php';
 <!-- Mian END -->
 
 <script>
-    console.log("%c Like Girl v5.2.0 | Powered by Ki", "color:#fff;background:linear-gradient(270deg,#986fee,#8695e6,#68b7dd,#18d7d3);padding:8px 15px;border-radius:15px");
+    console.log("%c Like Girl v5.2.1-Stable | Powered by Ki", "color:#fff;background:linear-gradient(270deg,#986fee,#8695e6,#68b7dd,#18d7d3);padding:8px 15px;border-radius:15px");
     console.log("%c Q | 3439780232", "color:#fff;background:#000;padding:8px 15px;border-radius:15px");
     
 </script>

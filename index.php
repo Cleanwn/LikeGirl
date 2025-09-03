@@ -25,7 +25,7 @@ include_once 'head.php';
                     class="card col-lg-4 col-sm-12 col-sm-x-12 flex-h <?php if ($text['Animation'] == "1") {
                         echo 'animated fadeInUp';
                     } ?>">
-                    <img src="Style/img/home/home-page.svg">
+                    <img src="Style/img/card/likegirl_card_1.svg">
                     <div class="text">
                         <span><a target="_self" href="little.php"><?php echo $text['card1'] ?></a></span>
                         <p><?php echo $text['deci1'] ?></p>
@@ -35,7 +35,7 @@ include_once 'head.php';
                     class="card col-lg-4 col-sm-12 col-sm-x-12 flex-h <?php if ($text['Animation'] == "1") {
                         echo 'animated fadeInUp';
                     } ?>">
-                    <img src="Style/img/home/home-msg.svg" alt="">
+                    <img src="Style/img/card/likegirl_card_2.svg" alt="">
                     <div class="text">
                         <span><a target="_self" href="leaving.php"><?php echo $text['card2'] ?></a></span>
                         <p><?php echo $text['deci2'] ?></p>
@@ -45,7 +45,7 @@ include_once 'head.php';
                     class="card col-lg-4 col-sm-12 col-sm-x-12 flex-h <?php if ($text['Animation'] == "1") {
                         echo 'animated fadeInUp';
                     } ?>">
-                    <img src="Style/img/home/home-about.svg" alt="">
+                    <img src="Style/img/card/likegirl_card_3.svg" alt="">
                     <div class="text">
                         <span><a target="_self" href="about.php"><?php echo $text['card3'] ?></a></span>
                         <p><?php echo $text['deci3'] ?></p>
@@ -55,7 +55,7 @@ include_once 'head.php';
                     class="card-b col-lg-6 col-12 col-sm-12 flex-h <?php if ($text['Animation'] == "1") {
                         echo 'animated fadeInUp';
                     } ?>">
-                    <img src="Style/img/home/home-photo.svg" alt="">
+                    <img src="Style/img/card/likegirl_card_4_1.svg" alt="">
                     <div class="text">
                         <span><a target="_self" href="loveImg.php">Love Photo</a></span>
                         <p>恋爱相册 记录最美瞬间</p>
@@ -65,7 +65,7 @@ include_once 'head.php';
                     class="card-b col-lg-6 col-12 col-sm-12 flex-h <?php if ($text['Animation'] == "1") {
                         echo 'animated fadeInUp';
                     } ?>">
-                    <img src="Style/img/home/home-list.svg" alt="">
+                    <img src="Style/img/card/likegirl_card_5.svg" alt="">
                     <div class="text">
                         <span><a target="_self" href="list.php">Love List</a></span>
                         <p>恋爱列表 你我之间的约定</p>

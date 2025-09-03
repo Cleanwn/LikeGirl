@@ -63,3 +63,9 @@
 .central.bg .row .card .inputbox {
   padding: 3rem 0 2rem;
 }
+
+
+.card-wrap .card-b{
+    width: 80% !important;
+    box-sizing: content-box;
+}

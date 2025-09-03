@@ -147,11 +147,17 @@ a:hover {
 }
 
 .header-wrap .header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: nowrap;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 0 6rem;
+    gap: 2rem;
+}
+
+.header-wrap .header .logo{
+    flex-shrink: 0;
 }
 
 .header-wrap .header .logo h1 {
@@ -164,11 +170,11 @@ a:hover {
   font-family: 'Noto Serif SC', serif;
   font-weight: 400;
   font-size: 1.1rem;
-  width: 60%;
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .bg-img {
@@ -339,7 +345,7 @@ a:hover {
 }
 
 .card-wrap .row .card:hover img,.card-wrap .card-b:hover img{
-    transform: rotate(360deg);
+    transform: rotate(-45deg);
 }
 
 .card-wrap .row .card .text {
@@ -456,4 +462,129 @@ a:hover {
 
 .mt-2rem{
   margin-top: 2rem;
+}
+
+
+/* Tooltip样式 */
+.custom-tooltip {
+    position: absolute;
+    z-index: 1000;
+    max-width: 250px; /* 最大宽度限制 */
+    padding: 8px 12px;
+    background: #333;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* 动画效果 */
+    transform: translateY(10px);
+    pointer-events: none;
+    white-space: pre-line; /* 支持换行 */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip小箭头 */
+.custom-tooltip::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+}
+
+/* 不同方向的箭头 */
+.custom-tooltip.top::after {
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: #333;
+}
+
+.custom-tooltip.bottom::after {
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: #333;
+}
+
+.custom-tooltip.left::after {
+    top: 50%;
+    right: -12px;
+    transform: translateY(-50%);
+    border-left-color: #333;
+}
+
+.custom-tooltip.right::after {
+    top: 50%;
+    left: -12px;
+    transform: translateY(-50%);
+    border-right-color: #333;
+}
+
+/* 显示状态 */
+.custom-tooltip.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.alogo b {
+    background: #2098ff;
+    color: #fff;
+    padding: .2rem .8rem;
+    font-size: 1.16rem;
+    border-radius: .6rem;
+}
+
+.lg-sidebar {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.lg-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lg-sidebar-item {
+  width: 46px;
+  height: 46px;
+  background-color: #f16b4f;
+  color: #fff;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.lg-sidebar-item:hover {
+  background-color: #ff9e8a;
+}
+
+.lg-sidebar-item:hover::after {
+  content: attr(title);
+  position: absolute;
+  right: 60px;
+  white-space: nowrap;
+  background-color: #000;
+  color: #fff;
+  padding: .6rem 1rem;
+  border-radius: .4rem;
+  font-size: .9rem;
+  opacity: 0.7;
+  font-family: 'Noto Serif SC', serif;
+}
+
+.lg-sidebar-icon {
+  width: 24px;
+  height: 24px;
 }
