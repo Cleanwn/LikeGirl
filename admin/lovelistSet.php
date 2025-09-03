@@ -70,6 +70,17 @@ $reslist = mysqli_query($connect, $lovelist);
     </div><!-- end col-->
 </div>
 
+<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="../Style/pagelir/spotlight.bundle.js"></script>
+<script>
+    $(function () {
+        $("img[src$=jpg],img[src$=gif],img[src$=JPG],img[src$=png],img[src$=jpeg]").addClass("spotlight").each(function () {
+            this.onclick = function () {
+                return hs.expand(this)
+            }
+        });
+    })
+</script>
 
 <script>
     function del(id, eventname) {

@@ -48,7 +48,7 @@ include_once 'head.php';
                         <div class="leavform <?php if ($Animation == "1") { ?>animated fadeInUp delay-03s<?php } ?>">
                             <div class="textinfo">
                                 <div class="MsgTopInfo">
-                                    <i class="time">
+                                    <i class="time" data-tip="<?php echo $datetime = date('Y-m-d H:i:s', $time); ?>" data-tip-position="top">
                                         <?php echo time_tran($time) ?> <b class="yuan"></b>
                                         <?php echo $city ? $city : '未知'; ?>
                                     </i>
@@ -56,9 +56,16 @@ include_once 'head.php';
 
                                 <div class="user_info">
                                     <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $qq ?>&s=100">
-                                    <span class="name"><?php echo $name ?></span>
+                                    <div class="head_content">
+                                        <div class="level">
+                                            访客 <b>#<?php echo $id ?></b>
+                                        </div>
+                                        <span class="name"><?php echo $name ?></span>
+
+                                    </div>
                                 </div>
-                                <div class="text"><?php echo $text ?></div>
+                                
+                                <div class="text"><?php echo escapeXSS($text) ?></div>
                             </div>
                         </div>
                         <?php
@@ -170,6 +177,7 @@ include_once 'head.php';
                     toastr["warning"]("表单信息不能为空 请先填写完整！", "Like_Girl");
                     return false
                 }
+                
                 $('#leavingPost').text('留言提交中...');
                 $("#leavingPost").attr("disabled", "disabled");
                 $.ajax({

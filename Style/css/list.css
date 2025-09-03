@@ -59,7 +59,7 @@
   color: #ddd;
 }
 .row .card .list_texts .com {
-  color: #19ffa0;
+  color: #2cdc87;
 }
 .row .card .list_texts span {
   font-size: 1.3rem;
@@ -68,6 +68,11 @@
   color: black; /* 默认颜色 */
   transition: color 0.3s ease; /* 过渡动画 */
 }
+
+.row .card .list_texts span.unfinished {
+    color: #aeaeae;
+}
+
 .row .card .list_texts span:hover {
     color: pink; /* 鼠标悬停时的颜色 */
 }

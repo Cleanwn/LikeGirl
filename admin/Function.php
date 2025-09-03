@@ -34,10 +34,15 @@ function checkQQ($qq)
     }
 }
 
-function replaceSpecialChar($Symbol)
+function replaceSpecialChar($str)
 {
-    $Filter = "/\ |\/|\~|\!|\@|\-|\=|\#|\\$|\%|\^|\&|\:|\*|\"|\(|\)|\_|\+|\{|\}|\<|\>|\?|\[|\]|\,|\/|\;|\'|\`|\=|\\\|\||/";
-    return preg_replace($Filter, "", $Symbol);
+    $filter = "/[\\'\"\\\`;]/"; 
+    return preg_replace($filter, '', $str);
+}
+
+
+function escapeXSS($str) {
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
 
 function time_tran($time)
