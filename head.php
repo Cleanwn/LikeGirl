@@ -173,7 +173,7 @@ $Animation = $text['Animation'];
                     placeholder: "Style/img/Loading2.gif",
                     effect: "show",
                     strictLazyMode: false,
-                    useErrorImagePlaceholder: "https://img.gejiba.com/images/dbc7f2562e051afc3c39f916689ba5f0.png"
+                    useErrorImagePlaceholder: "Style/img/error.svg"
                 });
     
                 currentPage++;

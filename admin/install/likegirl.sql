@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: 2025-09-03 03:03:05
+-- Generation Time: 2025-09-04 00:00:00
 -- 服务器版本： 5.6.51-log
 -- PHP Version: 7.0.33
 
@@ -73,7 +73,14 @@ CREATE TABLE IF NOT EXISTS `article` (
   `articletime` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `articletitle` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `articlename` varchar(20) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 转存表中的数据 `article`
+--
+
+INSERT INTO `article` (`id`, `articletext`, `articletime`, `articletitle`, `articlename`) VALUES
+(1, '<quote>引用内容样式</quote>\r\n\r\n<hr>\r\n\r\n\r\n<h1>H1文字大小演示</h1>\r\n\r\n<hr>\r\n\r\n\r\n<h2>H2文字大小演示</h2>\r\n\r\n<hr>\r\n\r\n\r\n<h3>H3文字大小演示</h3>\r\n\r\n<hr>\r\n\r\n\r\n<h4>H4文字大小演示</h4>\r\n\r\n<hr>\r\n\r\n\r\n<h5>H5文字大小演示</h5>\r\n\r\n<hr>\r\n\r\n\r\n<h6>H6文字大小演示</h6>\r\n\r\n<hr>\r\n\r\n\r\n<b>加粗字体</b>\r\n<s>删除线字体</s>\r\n<i>斜体</i>\r\n<code>强调内容</code>\r\n\r\n<center>文本居中</center>\r\n\r\n\r\n<!--分割线-->\r\n<hr>\r\n<quote>插入图片</quote>\r\n<img alt="" src="Style/img/bgCover.png">\r\n<!--分割线-->\r\n<hr>\r\n<quote>插入视频</quote>\r\n\r\n<video src="https://blog.kikiw.cn/mp4/likegirltest.mp4" controls></video>\r\n\r\n<!--分割线-->\r\n<hr>', '2022-11-20', 'Like_Girl 默认文章语法', 'Ki.');
 
 -- --------------------------------------------------------
 
@@ -113,7 +120,14 @@ CREATE TABLE IF NOT EXISTS `gifts` (
   `gift_price` decimal(10,2) NOT NULL COMMENT '礼物价格',
   `imgUrl` varchar(255) NOT NULL COMMENT '礼物图片URL',
   `gift_time` datetime DEFAULT NULL COMMENT '赠送时间'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='礼物墙';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='礼物墙';
+
+--
+-- 转存表中的数据 `gifts`
+--
+
+INSERT INTO `gifts` (`id`, `gift_name`, `gift_description`, `gift_from`, `gift_price`, `imgUrl`, `gift_time`) VALUES
+(1, 'Like_Girl 默认礼物', '礼物', 'Ki', '1.00', 'Style/img/bgCover.png', '2025-09-04 19:25:00');
 
 -- --------------------------------------------------------
 
@@ -143,7 +157,14 @@ CREATE TABLE IF NOT EXISTS `leaving` (
   `time` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `ip` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ip记录',
   `city` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '省/城市'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 转存表中的数据 `leaving`
+--
+
+INSERT INTO `leaving` (`id`, `name`, `QQ`, `text`, `time`, `ip`, `city`) VALUES
+(1, 'Ki.', '3439780232', 'Like Girl 5.2.1-Stable 默认留言', '1756830249', '223.104.79.236', '广东');
 
 -- --------------------------------------------------------
 
@@ -198,7 +219,14 @@ CREATE TABLE IF NOT EXISTS `loveimg` (
   `imgDatd` varchar(100) NOT NULL COMMENT '日期',
   `imgText` varchar(200) NOT NULL COMMENT '描述',
   `imgUrl` varchar(200) NOT NULL COMMENT '外链'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+--
+-- 转存表中的数据 `loveimg`
+--
+
+INSERT INTO `loveimg` (`id`, `imgDatd`, `imgText`, `imgUrl`) VALUES
+(1, '2025-09-04', 'Like_Girl 默认相册', 'Style/img/bgCover.png');
 
 -- --------------------------------------------------------
 
@@ -211,7 +239,14 @@ CREATE TABLE IF NOT EXISTS `lovelist` (
   `icon` int(1) NOT NULL COMMENT '是否完成',
   `eventname` varchar(200) CHARACTER SET utf8mb4 NOT NULL COMMENT '事件内容',
   `imgurl` varchar(300) COLLATE utf8_unicode_ci NOT NULL COMMENT '图片地址'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 转存表中的数据 `lovelist`
+--
+
+INSERT INTO `lovelist` (`id`, `icon`, `eventname`, `imgurl`) VALUES
+(1, 0, '一起去电影院看一场电影🎬', '0');
 
 -- --------------------------------------------------------
 
@@ -394,7 +429,7 @@ ALTER TABLE `warning`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `diyset`
 --
@@ -404,7 +439,7 @@ ALTER TABLE `diyset`
 -- AUTO_INCREMENT for table `gifts`
 --
 ALTER TABLE `gifts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `iperror`
 --
@@ -414,7 +449,7 @@ ALTER TABLE `iperror`
 -- AUTO_INCREMENT for table `leaving`
 --
 ALTER TABLE `leaving`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `leavset`
 --
@@ -429,12 +464,12 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `loveimg`
 --
 ALTER TABLE `loveimg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `lovelist`
 --
 ALTER TABLE `lovelist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `picset`
 --
