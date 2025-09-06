@@ -22,7 +22,7 @@ $sql = "select * from text";
 $result = mysqli_query($connect, $sql);
 $text = mysqli_fetch_array($result);
 
-$sql = "select * from diySet";
+$sql = "select * from diyset";
 $result = mysqli_query($connect, $sql);
 if (mysqli_num_rows($result)) {
     $diy = mysqli_fetch_array($result);

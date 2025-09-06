@@ -40,7 +40,7 @@ if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
             echo "4";
         }
         
-        $diysql = "update diySet set headCon = '$headCon',footerCon = '$footerCon',cssCon = '$cssCon' ";
+        $diysql = "update diyset set headCon = '$headCon',footerCon = '$footerCon',cssCon = '$cssCon' ";
         $diyresult = mysqli_query($connect, $diysql);
         if ($diyresult) {
             echo "5";

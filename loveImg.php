@@ -1,7 +1,7 @@
 <?php
 include_once 'head.php';
 
-$loveImg = "select * from loveImg order by id desc";
+$loveImg = "select * from loveimg order by id desc";
 $resImg = mysqli_query($connect, $loveImg);
 ?>
 

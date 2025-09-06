@@ -10,7 +10,7 @@ if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
     $imgDatd = trim($_POST['imgDatd']);
     $imgUrl = htmlspecialchars(trim($_POST['imgUrl']), ENT_QUOTES);
     
-    $charu = "insert into loveImg (imgDatd,imgText,imgUrl) values ('$imgDatd','$imgText','$imgUrl')";
+    $charu = "insert into loveimg (imgDatd,imgText,imgUrl) values ('$imgDatd','$imgText','$imgUrl')";
     $result = mysqli_query($connect, $charu);
     if ($result) {
         echo "1";

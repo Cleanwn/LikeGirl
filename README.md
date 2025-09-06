@@ -4,7 +4,7 @@
 情侣小站 LikeGirl 说明
 
 * 本项目来自Ki的开源情侣小站，属于二次分发内容。
-* 原项目 情侣小站v5.2.0 已经停止更新。LG_NewUi版本请前往[LG_NewUi](https://blog.kikiw.cn/index.php/archives/65/)
+* 原项目 情侣小站v5.2.1-Stable 已经停止更新。LG_NewUi版本请前往[LG_NewUi](https://blog.kikiw.cn/index.php/archives/65/)
 
 * 虽然我知道，大部分人都是来了直接下载源码，然后潇洒的离开。
   虽然我知道现实就是如此的残酷，但我还是要以我萤虫之力对各位到来的同仁发出一声诚挚的嘶吼：Star，Star，Star。

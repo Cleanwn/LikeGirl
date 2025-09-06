@@ -43,7 +43,7 @@
     }
     
     // 查询 `diySet` 表的数据
-    $sql = "SELECT * FROM diySet";
+    $sql = "SELECT * FROM diyset";
     $result = mysqli_query($connect, $sql);
     if (mysqli_num_rows($result)) {
         $diy = mysqli_fetch_array($result);
@@ -106,7 +106,7 @@
     $listlove = mysqli_fetch_array($reslsit);
     $listnub = $listlove['list'];
     //恋爱相册
-    $img = "select count(id) as img from loveImg";
+    $img = "select count(id) as img from loveimg";
     $resimg = mysqli_query($connect, $img);
     $loveImg = mysqli_fetch_array($resimg);
     $imgnub = $loveImg['img'];

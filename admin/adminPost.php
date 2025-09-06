@@ -22,7 +22,7 @@ if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
     }
 
 
-    $diy = "update diySet set Pjaxkg = '$WebPjax' , Blurkg = '$WebBlur' , musickg = '$WebMusic', live2dkg = '$WebLive2D' where id = '1'";
+    $diy = "update diyset set Pjaxkg = '$WebPjax' , Blurkg = '$WebBlur' , musickg = '$WebMusic', live2dkg = '$WebLive2D' where id = '1'";
     $diyresult = mysqli_query($connect, $diy);
     if ($diyresult) {
         echo "3";

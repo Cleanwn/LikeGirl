@@ -9,11 +9,11 @@ $limit = isset($_POST['limit']) ? intval($_POST['limit']) : 6;
 $offset = ($page - 1) * $limit;
 
 // 查询总数
-$totalRes = $connect->query("SELECT COUNT(*) as total FROM loveImg");
+$totalRes = $connect->query("SELECT COUNT(*) as total FROM loveimg");
 $total = $totalRes->fetch_assoc()['total'];
 
 // 预处理分页查询
-$stmt = $connect->prepare("SELECT imgUrl, imgDatd, imgText FROM loveImg ORDER BY id DESC LIMIT ?, ?");
+$stmt = $connect->prepare("SELECT imgUrl, imgDatd, imgText FROM loveimg ORDER BY id DESC LIMIT ?, ?");
 $stmt->bind_param("ii", $offset, $limit);
 $stmt->execute();
 $result = $stmt->get_result();

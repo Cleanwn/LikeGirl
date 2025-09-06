@@ -5,7 +5,7 @@ include_once 'connect.php';
 if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
     $id = $_GET['id'];
     if (is_numeric($id)) {
-        $sql = "delete from loveImg where id = $id";
+        $sql = "delete from loveimg where id = $id";
         $result = mysqli_query($connect, $sql);
         if ($result) {
             echo "<script>alert('删除相册成功');location.href = 'loveImgSet.php';</script>";
