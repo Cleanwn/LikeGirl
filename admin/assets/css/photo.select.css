@@ -12,10 +12,14 @@
     position: relative;
     width: 150px;
     height: 150px;
-    border: 2px dashed #ccc;
+    border: 2px dashed #e5e7eb;
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
+}
+
+#thumbnailContainer.dragging {
+    border-color: #10b981;
 }
 
 .thumbnail-image {
@@ -73,7 +77,7 @@ a{text-decoration:none}
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
-  box-shadow: none !important;  
+  box-shadow: none !important; 
 }
 .navbar-custom-i{
     background-color: rgb(255,255,255);
@@ -104,12 +108,25 @@ a{text-decoration:none}
 
 .img-card {
     position: relative;
-    height: 250px;
+    height: 300px;
     margin: 15px 0;
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.img-card:hover:not(.selected) {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(250,92,124,0.4);
+}
+
+.img-card:hover:not(.selected) .selection-marker{
+    display: flex;
+}
+
+.img-card.selected .selection-marker{
+    display: flex;
 }
 
 .img-background {
@@ -122,31 +139,70 @@ a{text-decoration:none}
     transition: opacity 0.3s ease;
 }
 
+.selection-marker {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.selected {
+    border: 1px solid #fa5c7c;
+    box-shadow: 0 0 0 2px rgba(250,92,124,0.2);
+}
+
 .text-info {
     position: absolute;
     border-radius: 10px;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 30%;
+    height: 25%;
     background-image: linear-gradient(to top, #000, transparent);
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 15px;
     color: white;
     transition: transform 0.3s ease;
 }
 
+.img-card.selected{
+    transform: translateY(-5px);
+}
+
+.img-card.selected .fa-check-circle {
+    opacity: 1;
+}
+
+.fa-check-circle {
+    color: rgba(250,92,124,0.4);
+    font-size: 1.5rem;
+    opacity: 0;
+}
+
 .name {
-    margin-top: .9rem;
     font-size: .875rem;
     line-height: 1.25rem;
     margin-bottom: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: rgb(255 255 255);
 }
 
 .time {
     font-size: .75rem;
     line-height: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: rgb(255 255 255);
+}
+.round-6{
+    border-radius: 6px;
 }
