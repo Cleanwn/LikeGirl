@@ -78,16 +78,16 @@ $gift = mysqli_fetch_array($resGifts);
         </button>
       </div>
       <div class="modal-body d-flex flex-column align-items-center">
-        <div class="upload-area d-flex flex-column align-items-center mb-3">
+        <div class="upload-area d-flex flex-column align-items-center mb-3" id="uploadArea">
           <div id="thumbnailContainer" class="relative">
             <img src="" alt="图片缩略图" id="thumbnailImage" class="thumbnail-image" style="display: none; width: 150px; height: 150px; object-fit: cover; border-radius: 10px; position: relative; z-index: 1;">
             <div class="overlay d-flex flex-column align-items-center justify-content-center" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); border-radius: 10px; opacity: 0; transition: opacity 0.3s ease;">
             </div>
           </div>
-          <input id="fileName" type="text" class="text-center mt-2 no-border" placeholder="点击上传框选择文件" value="" required>
+          <input id="fileName" type="text" class="text-center mt-2 no-border" placeholder="拖放文件或点击选择文件" value="" required>
           <span class="text-center mt-2">选择后建议重命名(保留后缀如.png/.jpg)，便于图库查找</span>
         </div>
-        <button class="btn btn-primary"  type="submit" id="uploadImg">上传图片</button>
+        <button class="btn btn-primary" type="submit" id="uploadImg">上传图片</button>
       </div>
     </div>
   </div>
