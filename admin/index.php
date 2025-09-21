@@ -153,17 +153,6 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let isModalShown = localStorage.getItem("modalShown");
-        let myButton = document.getElementById("myButton");
-        if (!isModalShown) {
-            myButton.click();
-            localStorage.setItem("modalShown", true);
-        }
-    });
-</script>
-
 <?php
 include_once 'Footer.php';
 ?>
