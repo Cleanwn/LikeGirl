@@ -9,7 +9,7 @@ if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
     $jiequ = trim($_POST['jiequ']);
     $lanjiezf = htmlspecialchars(trim($_POST['lanjiezf']), ENT_QUOTES);
     
-    $sql = "update leavSet set jiequ = '$jiequ',lanjiezf ='$lanjiezf'  ";
+    $sql = "update leavset set jiequ = '$jiequ',lanjiezf ='$lanjiezf'  ";
     $result = mysqli_query($connect, $sql);
     if ($result) {
         echo "1";

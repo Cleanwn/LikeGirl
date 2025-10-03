@@ -6,8 +6,8 @@ $nub = "select count(id) as shu from leaving";
 $res = mysqli_query($connect, $nub);
 $leav = mysqli_fetch_array($res);
 $shu = $leav['shu'];
-$leavSet = "select * from leavSet order by id desc";
-$Set = mysqli_query($connect, $leavSet);
+$leavset = "select * from leavset order by id desc";
+$Set = mysqli_query($connect, $leavset);
 $Setinfo = mysqli_fetch_array($Set);
 $jiequ = $Setinfo['jiequ'];
 
