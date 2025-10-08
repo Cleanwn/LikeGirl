@@ -50,11 +50,11 @@
     font-size: 1.05rem;
     color: #454040;
     letter-spacing: 1px;
-    margin-top: 1rem;
     line-height: 1.5em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    display: block;
 }
 
 .img_card i {
