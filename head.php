@@ -333,7 +333,7 @@ if ($diy['Pjaxkg'] == "1"):?>
             <h1><a class="alogo" href="index.php"><?php echo preg_replace('/\{([^}]+)\}/', '<b>$1</b>', $text['logo']) ?></a></h1>
         </div>
         <div class="word" data-tip="<?php echo $text['writing'] ?>" data-tip-position="bottom">
-            <span class="wenan"><a href="admin/index.php"><?php echo $text['writing'] ?></a></span>
+            <span class="wenan"><a href="admin/index.php" target="_blank"><?php echo $text['writing'] ?></a></span>
         </div>
     </div>
 </div>
