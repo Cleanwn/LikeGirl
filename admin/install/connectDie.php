@@ -16,11 +16,14 @@
 
 <?php
     include_once __DIR__ . '/../Config_DB.php';
-    
-    $connect = @mysqli_connect($db_address, $db_username, $db_password, $db_name);
-    if ($connect) {
-        mysqli_close($connect);
-        die("<script>location.href = '../login.php';</script>");
+
+    // 检测配置是否有效
+    if (!empty($db_address) && !empty($db_username) && !empty($db_password) && !empty($db_name)) {
+        $connect = @mysqli_connect($db_address, $db_username, $db_password, $db_name);
+        if ($connect) {
+            mysqli_close($connect);
+            die("<script>location.href = '../login.php';</script>");
+        }
     }
 ?>
 

@@ -18,8 +18,14 @@
 error_reporting(0);
 header("Content-Type:text/html; charset=utf8");
 include_once __DIR__.'/Config_DB.php';
-$conn = new mysqli($db_address,$db_username,$db_password,$db_name);
 
+// 检测是否初始化配置
+if (empty($db_address) || empty($db_username) || empty($db_password) || empty($db_name)) {
+    die("<script>location.href = '../admin/install/connectDie.php';</script>");
+}
+
+// 尝试连接数据库
+$conn = new mysqli($db_address, $db_username, $db_password, $db_name);
 if ($conn->connect_error) {
     die("<script>location.href = '../admin/install/connectDie.php';</script>");
 }
