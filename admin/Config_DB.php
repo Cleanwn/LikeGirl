@@ -15,8 +15,6 @@
  * @Message：开发不易 版权信息请保留 （删除/更改版权的无耻之人请勿使用 查到一个挂一个）
  */
 
-header("Content-Type:text/html; charset=utf8");
-
 // localhost 为数据库地址 一般使用默认的即可 或（127.0.0.1）
 $db_address = "localhost";
 

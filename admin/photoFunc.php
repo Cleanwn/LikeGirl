@@ -153,13 +153,15 @@ try {
             return;
 
         case 'get_img':
+            // 每页最大图片张数
+            $perPage = 24;
             $params = [
-                'page' => $_POST['page'] ?? 1, 
+                'page' => max(1, (int)($_POST['page'] ?? 1)),
                 'q' => $_POST['q'] ?? ''
             ];
             
-            $offset = max(0, ($params['page'] - 1) * 24);
-            $sql = "select id, name, date, url from picture where name LIKE ? order by date desc limit ?, 24";
+            $offset = ($params['page'] - 1) * $perPage;
+            $sql = "select id, name, date, url from picture where name LIKE ? order by date desc limit ?, $perPage";
             $stmt = $connect->prepare($sql); 
             $searchTerm = '%' . $params['q'] . '%';
             $stmt->bind_param("si", $searchTerm, $offset);

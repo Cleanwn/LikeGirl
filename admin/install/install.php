@@ -1,5 +1,6 @@
 <?php
-error_reporting(0);
+error_reporting(0); // 关闭 PHP 错误报告显示级别
+mysqli_report(MYSQLI_REPORT_OFF);   // 关闭 MySQLi 异常模式
 
 // 获取表单提交的数据
 $db_address  = trim($_POST['db_address'] ?? '');
@@ -16,6 +17,7 @@ if ( $db_address === '' || $db_username === '' || $db_password === '' || $db_nam
 // 测试数据库连接
 $conn = @new mysqli($db_address, $db_username, $db_password, $db_name);
 if ($conn->connect_errno) {
+    $conn->close();
     die("❌ 安装失败，请检查配置后重试！");
 }
 
@@ -53,26 +55,15 @@ $db_password_export = var_export($db_password, true);
 $db_name_export     = var_export($db_name, true);
 $like_code_export   = var_export($like_code, true);
 
+// 待写入内容
 $config_content = <<<PHP
 <?php
-
-header("Content-Type:text/html; charset=utf8");
-
-// 数据库地址
-\$db_address = $db_address_export;
-
-// 数据库用户名
+\$db_address  = $db_address_export;
 \$db_username = $db_username_export;
-
-// 数据库密码
 \$db_password = $db_password_export;
-
-// 数据库名称
-\$db_name = $db_name_export;
-
-// 安全码
-\$Like_Code = $like_code_export;
-
+\$db_name     = $db_name_export;
+\$Like_Code   = $like_code_export;
+\$version     = 20250101;
 PHP;
 
 // 写入配置
@@ -86,5 +77,3 @@ $conn->close();
 // 跳转到登录页面
 header("Location: ../login.php");
 exit;
-
-?>

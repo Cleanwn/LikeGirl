@@ -15,7 +15,9 @@
  * @Message：开发不易 版权信息请保留 （删除/更改版权的无耻之人请勿使用 查到一个挂一个）
  * @Message：开发不易 版权信息请保留 （删除/更改版权的无耻之人请勿使用 查到一个挂一个）
  */
-error_reporting(0);
+
+error_reporting(0); // 关闭 PHP 错误报告显示级别
+mysqli_report(MYSQLI_REPORT_OFF);   // 关闭 MySQLi 异常模式
 header("Content-Type:text/html; charset=utf8");
 include_once __DIR__.'/Config_DB.php';
 

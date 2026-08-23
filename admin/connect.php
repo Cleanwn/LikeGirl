@@ -1,5 +1,6 @@
 <?php
-error_reporting(0);
+error_reporting(0); // 关闭 PHP 错误报告显示级别
+mysqli_report(MYSQLI_REPORT_OFF);   // 关闭 MySQLi 异常模式
 header("Content-Type:text/html; charset=utf8");
 include_once __DIR__.'/Config_DB.php';
 

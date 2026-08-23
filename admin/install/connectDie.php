@@ -15,6 +15,7 @@
 -->
 
 <?php
+    mysqli_report(MYSQLI_REPORT_OFF);   // 关闭 MySQLi 异常模式
     include_once __DIR__ . '/../Config_DB.php';
 
     // 检测配置是否有效
